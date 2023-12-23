@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Command Line Intro | Assembly, Annotation, and Comparative Genomics for Prokaryotes</title>
+<meta name="author" content="Laura Perlaza-Jiménez (PhD)">
+<meta name="description" content="If you are completely new to working with command line the following short introduction should be useful to get you started. Please read carefully this section, it will help you to understand...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Command Line Intro | Assembly, Annotation, and Comparative Genomics for Prokaryotes">
+<meta property="og:type" content="book">
+<meta property="og:description" content="If you are completely new to working with command line the following short introduction should be useful to get you started. Please read carefully this section, it will help you to understand...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 Command Line Intro | Assembly, Annotation, and Comparative Genomics for Prokaryotes">
+<meta name="twitter:description" content="If you are completely new to working with command line the following short introduction should be useful to get you started. Please read carefully this section, it will help you to understand...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Assembly, Annotation, and Comparative Genomics for Prokaryotes</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> START HERE</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">3</span> Getting Started</a></li>
+<li><a class="" href="run-pipeline.html"><span class="header-section-number">4</span> Run Pipeline</a></li>
+<li><a class="" href="understand-outputs.html"><span class="header-section-number">5</span> Understand Outputs</a></li>
+<li><a class="" href="write-methods.html"><span class="header-section-number">6</span> Write Methods</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">7</span> Troubleshooting</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">8</span> Resources</a></li>
+<li><a class="active" href="command-line-intro.html"><span class="header-section-number">9</span> Command Line Intro</a></li>
+<li><a class="" href="connect-to-the-cluster.html"><span class="header-section-number">10</span> Connect to the cluster</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/MonashBioinformaticsPlatform/Nov2023_scRNAseq_workshop">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="command-line-intro" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Command Line Intro<a class="anchor" aria-label="anchor" href="#command-line-intro"><i class="fas fa-link"></i></a>
+</h1>
+<p>If you are completely new to working with command line the following short introduction should be useful to get you started. Please read carefully this section, it will help you to understand instructions in later sections.</p>
+<div id="general-syntax-and-conventions" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> General syntax and conventions:<a class="anchor" aria-label="anchor" href="#general-syntax-and-conventions"><i class="fas fa-link"></i></a>
+</h2>
+<p>• Code or command are instructions directly given to the computer through a console or terminal window. Code or command lines in this tutorial are written with <code>this style</code> or</p>
+<pre><code>in this boxes</code></pre>
+<p>• If a string is written between &lt; &gt; it means that you have to type what that means in your case. For example: Login as: <code>&lt;your username&gt;</code> this means you have to type your user name in that space without the <code>&lt; &gt;</code></p>
+<p>For example, the following instructions should look like:</p>
+<pre><code>cp &lt;file_name&gt; &lt;file_destination&gt;</code></pre>
+<p>My file name os <code>myfile.txt</code> and my file destination is <code>newfolder</code></p>
+<pre><code>cp myfile.txt newfolder
+</code></pre>
+<p>• When asterisk <code>*</code> is used it means all of that kind. For example: <code>ls *.fasta</code> will print a list of all files that have the extension .fasta</p>
+<p>• Every line starting with <code>#</code> is a comment. There lines are not interpreted by your computer, there are there only to give you additional information.</p>
+<div id="programs" class="section level3" number="9.1.1">
+<h3>
+<span class="header-section-number">9.1.1</span> Programs:<a class="anchor" aria-label="anchor" href="#programs"><i class="fas fa-link"></i></a>
+</h3>
+<p>Command lines for executing programs usually looks like:</p>
+<pre><code>program --input &lt;inputfile&gt;</code></pre>
+<p>where<br><code>program</code> is the program in question<br><code>--input</code> is the option or parameter<br><code>inputfile</code> is the argument</p>
+<p>• Options/parameters for a program are denotated by a dash and a letter as:<code>-f</code> or a double dash and a string as: <code>--file</code>. If an option is not required but optional is often explained using <code>[ ]</code>, for example: <code>[-t 8]</code></p>
+<p>• Arguments are the input to the options/parameters. For example <code>-f myfile.txt</code>. -f is the option to input your file and myfile.txt is the argument for that option, the name of your file. The arguments are often explained using &lt; &gt;. When several arguments are possible for an option pipes are used to show the different possibilities, for example <code>[-f sam|bam]</code>. This means the option <code>-f</code> allows sam or bam formats</p>
+</div>
+</div>
+<div id="basic-commands" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Basic commands:<a class="anchor" aria-label="anchor" href="#basic-commands"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you enter your terminal your prompt consists of: <code>HOST_NAME:MACHINE CURRENT_DIRECTORY $</code> everything after $ is your command line. You can use the following basic commands to access information or perform tasks in your computer.</p>
+<p>• <strong>c</strong>hange <strong>d</strong>irectory</p>
+<pre><code>cd &lt;name of directory you want to change to&gt;</code></pre>
+<p><code>cd</code> or <code>cd ~</code> move you to your home directory</p>
+<p>• <strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory</p>
+<pre><code>pwd</code></pre>
+<p>• <strong>l</strong>i<strong>s</strong>t your files</p>
+<pre><code>ls</code></pre>
+<p>• <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>*ectory</p>
+<pre><code>mkdir &lt;new folder name&gt;</code></pre>
+<p>• <strong>c</strong>o<strong>p</strong>y (needs file to be copied and destination).</p>
+<pre><code>cp &lt;path of file to be copy&gt; &lt;destination path&gt;</code></pre>
+</div>
+<div id="files-system" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Files system<a class="anchor" aria-label="anchor" href="#files-system"><i class="fas fa-link"></i></a>
+</h2>
+<p>• Please note that directories are structured in a <a href="https://www.geeksforgeeks.org/structures-of-directory-in-operating-system/">hierarchical system</a>. You have to know where you are standing to ask the computer to move to the correct folder.</p>
+<p>Example of folder structure:</p>
+<pre><code>           | subfolder_1 
+           | 
+main_folder
+           |
+           | subfolder_2
+                        |
+                        |subfolder_2.1 (YOU ARE HERE)
+</code></pre>
+<pre><code>#where am I?
+
+pwd
+
+#shows this path: /main_folder/subfolder_2/subfolder_2.1
+
+# I want to go to the folder conteining this folder
+
+cd ..
+
+# moves to /main_folder/subfolder_2/
+
+
+# I want to go to the folder conteining this folder and change to a folder that is there
+
+
+cd ../subfolder_1
+
+#moves to subfolder_1</code></pre>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="resources.html"><span class="header-section-number">8</span> Resources</a></div>
+<div class="next"><a href="connect-to-the-cluster.html"><span class="header-section-number">10</span> Connect to the cluster</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#command-line-intro"><span class="header-section-number">9</span> Command Line Intro</a></li>
+<li>
+<a class="nav-link" href="#general-syntax-and-conventions"><span class="header-section-number">9.1</span> General syntax and conventions:</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#programs"><span class="header-section-number">9.1.1</span> Programs:</a></li></ul>
+</li>
+<li><a class="nav-link" href="#basic-commands"><span class="header-section-number">9.2</span> Basic commands:</a></li>
+<li><a class="nav-link" href="#files-system"><span class="header-section-number">9.3</span> Files system</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/MonashBioinformaticsPlatform/Nov2023_scRNAseq_workshop/blob/master/07-CommandLineIntro.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/MonashBioinformaticsPlatform/Nov2023_scRNAseq_workshop/edit/master/07-CommandLineIntro.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Assembly, Annotation, and Comparative Genomics for Prokaryotes</strong>" was written by Laura Perlaza-Jiménez (PhD). It was last built on Compiled: December 24, 2023.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

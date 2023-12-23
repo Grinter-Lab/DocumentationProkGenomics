@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Getting Started | Assembly, Annotation, and Comparative Genomics for Prokaryotes</title>
+<meta name="author" content="Laura Perlaza-Jiménez (PhD)">
+<meta name="description" content="3.1 Make sure you have Nextflow running Before you get started with the pipeline, make sure you have installed nextflow. If you are using a cluster there are high chances that nextflow is a module...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Getting Started | Assembly, Annotation, and Comparative Genomics for Prokaryotes">
+<meta property="og:type" content="book">
+<meta property="og:description" content="3.1 Make sure you have Nextflow running Before you get started with the pipeline, make sure you have installed nextflow. If you are using a cluster there are high chances that nextflow is a module...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Getting Started | Assembly, Annotation, and Comparative Genomics for Prokaryotes">
+<meta name="twitter:description" content="3.1 Make sure you have Nextflow running Before you get started with the pipeline, make sure you have installed nextflow. If you are using a cluster there are high chances that nextflow is a module...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Assembly, Annotation, and Comparative Genomics for Prokaryotes</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> START HERE</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
+<li><a class="active" href="getting-started.html"><span class="header-section-number">3</span> Getting Started</a></li>
+<li><a class="" href="run-pipeline.html"><span class="header-section-number">4</span> Run Pipeline</a></li>
+<li><a class="" href="understand-outputs.html"><span class="header-section-number">5</span> Understand Outputs</a></li>
+<li><a class="" href="write-methods.html"><span class="header-section-number">6</span> Write Methods</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">7</span> Troubleshooting</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">8</span> Resources</a></li>
+<li><a class="" href="command-line-intro.html"><span class="header-section-number">9</span> Command Line Intro</a></li>
+<li><a class="" href="connect-to-the-cluster.html"><span class="header-section-number">10</span> Connect to the cluster</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/MonashBioinformaticsPlatform/Nov2023_scRNAseq_workshop">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="getting-started" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
+</h1>
+<div id="make-sure-you-have-nextflow-running" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Make sure you have Nextflow running<a class="anchor" aria-label="anchor" href="#make-sure-you-have-nextflow-running"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before you get started with the pipeline, make sure you have installed nextflow.</p>
+<p>If you are using a <strong>cluster</strong> there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>nextflow</code> to see if you have different versions available. Ideally use the most recent version.</p>
+<pre><code>module add nextflow</code></pre>
+<p>If you can have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your computer or your server), you could create a conda environment and install nextflow following the next commands</p>
+<pre><code>
+conda create -n nextflow
+conda activate nextflow
+conda install -c bioconda nextflow
+
+</code></pre>
+<p>Use <code>conda activate nextflow</code> every time you want to use nextflow</p>
+<p>Alternatively, you could install nextflow using the <a href="https://www.nextflow.io/docs/latest/getstarted.html">nextflow installation instructions</a></p>
+</div>
+<div id="download-the-nextflow-pipeline" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Download the nextflow pipeline<a class="anchor" aria-label="anchor" href="#download-the-nextflow-pipeline"><i class="fas fa-link"></i></a>
+</h2>
+<p>Run the following command</p>
+<pre><code>git clone git@github.com:Grinter-Lab/ProkGenomics.git
+</code></pre>
+<p>If you have issues consulte the <a href="troubleshooting.html">troubleshoot section</a> for help</p>
+<p>A successful download of the repository should look like this:</p>
+<pre><code>Cloning into 'ProkGenomics'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.</code></pre>
+<p>To be able to run the program from any location without using the complete path, run the following commands</p>
+<pre><code># move to the program folder
+cd ProkGenomics/
+
+pwd 
+# This will print your location
+/path/to/dir/program/
+
+export PATH="$PATH:/path/to/dir/program/"</code></pre>
+</div>
+<div id="set-up-your-working-directory" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Set up your working directory<a class="anchor" aria-label="anchor" href="#set-up-your-working-directory"><i class="fas fa-link"></i></a>
+</h2>
+<p>Create a working directory for your project</p>
+<pre><code>mkdir Project1
+cd Project1
+</code></pre>
+<p>Create a folder for your raw data</p>
+<pre><code>mkdir rawdata
+cd rawdata</code></pre>
+</div>
+<div id="how-to-transfer-raw-data-to-clusterserver" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> How to transfer raw data to cluster/server<a class="anchor" aria-label="anchor" href="#how-to-transfer-raw-data-to-clusterserver"><i class="fas fa-link"></i></a>
+</h2>
+<p>Open a tab in your terminal from your local computer</p>
+<pre><code># from tab in your local computer
+# scp &lt;location in the server, notice structue as serve:path&gt; &lt;location in your computer where you want the file to go&gt;
+# notice that the wild card allows you to move all files ending in fq.gz. if your files have a different extention please modify accordently (ex. fastq.gz)
+
+scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
+</code></pre>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="introduction.html"><span class="header-section-number">2</span> Introduction</a></div>
+<div class="next"><a href="run-pipeline.html"><span class="header-section-number">4</span> Run Pipeline</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#getting-started"><span class="header-section-number">3</span> Getting Started</a></li>
+<li><a class="nav-link" href="#make-sure-you-have-nextflow-running"><span class="header-section-number">3.1</span> Make sure you have Nextflow running</a></li>
+<li><a class="nav-link" href="#download-the-nextflow-pipeline"><span class="header-section-number">3.2</span> Download the nextflow pipeline</a></li>
+<li><a class="nav-link" href="#set-up-your-working-directory"><span class="header-section-number">3.3</span> Set up your working directory</a></li>
+<li><a class="nav-link" href="#how-to-transfer-raw-data-to-clusterserver"><span class="header-section-number">3.4</span> How to transfer raw data to cluster/server</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/MonashBioinformaticsPlatform/Nov2023_scRNAseq_workshop/blob/master/01-GettingStarted.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/MonashBioinformaticsPlatform/Nov2023_scRNAseq_workshop/edit/master/01-GettingStarted.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Assembly, Annotation, and Comparative Genomics for Prokaryotes</strong>" was written by Laura Perlaza-Jiménez (PhD). It was last built on Compiled: December 24, 2023.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

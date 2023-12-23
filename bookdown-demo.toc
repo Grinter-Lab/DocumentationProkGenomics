@@ -1,0 +1,23 @@
+\contentsline {chapter}{\numberline {1}START HERE}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Introduction}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Overview of the pipeline}{7}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Getting Started}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Make sure you have Nextflow running}{9}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Download the nextflow pipeline}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Set up your working directory}{10}{section.3.3}%
+\contentsline {section}{\numberline {3.4}How to transfer raw data to cluster/server}{10}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Run Pipeline}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simple run}{11}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Understand Outputs}{13}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Write Methods}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Troubleshooting}{17}{chapter.7}%
+\contentsline {section}{\numberline {7.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{17}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Resources}{19}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Command Line Intro}{21}{chapter.9}%
+\contentsline {section}{\numberline {9.1}General syntax and conventions:}{21}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Programs:}{21}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}Basic commands:}{22}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Files system}{22}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Connect to the cluster}{25}{chapter.10}%
+\contentsline {subsection}{\numberline {10.0.1}Macs}{25}{subsection.10.0.1}%
+\contentsline {subsection}{\numberline {10.0.2}Windows}{25}{subsection.10.0.2}%

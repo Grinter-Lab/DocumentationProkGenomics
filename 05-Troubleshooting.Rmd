@@ -1,0 +1,20 @@
+# Troubleshooting
+
+
+## git@github.com: Permission denied 
+
+You may see this error:
+
+```
+Cloning into 'ProkGenomics'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+Note that this is a private repository, you may required to log in using your github details. Github now requires for you to setup a token key to access private repositories, please follow the [github instructions to set up one](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+
+

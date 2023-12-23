@@ -1,0 +1,21 @@
+# Resources
+
+
+https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+
+http://www.usadellab.org/cms/?page=trimmomatic
+
+https://github.com/rrwick/Unicycler
+
+
+
+
+
+Other programs 
+
+
+https://bactopia.github.io/v3.0.0/
+
+https://proksee.ca/
+
+https://genome.usegalaxy.org.au/

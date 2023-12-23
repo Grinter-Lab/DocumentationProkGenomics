@@ -1,0 +1,19 @@
+--- 
+title: "Assembly, Annotation, and Comparative Genomics for Prokaryotes"
+author: "Laura Perlaza-Jiménez (PhD)"
+date: 'Compiled: `r format(Sys.Date(), "%B %d, %Y")`'
+site: bookdown::bookdown_site
+#output: bookdown::gitbook
+documentclass: book
+github-repo: 
+description: "This is the documentation to run the nextflow pipeline for Prokaryotic assembly, annotation, characterization and comparative genomics."
+---
+
+# START HERE
+
+
+<button class="bluesquare" title=""><span><a href="getting-started.html" style="color: white;">I know command-line and SSH</a></span></button>
+
+<button class="bluesquare" title=""><span><a href="command-line-intro.html" style="color: white;">I don't know where to start</a></span></button>
+
+

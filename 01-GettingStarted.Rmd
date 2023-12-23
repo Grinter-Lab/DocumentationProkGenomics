@@ -1,0 +1,117 @@
+# Introduction
+
+This [nextflow](https://www.nextflow.io/) pipeline allows you to run several programs using a one-line command. It wraps programs to assemble, annotate, taxonomically identify, genotypic characterize and perform simple comparative genomics on prokaryotic sequencing data. This pipeline is self-contained and is NOT meant to be run in modules (not independent parts of it). This with the intention of simplifying the user interaction and the user knowledge about the bioinformatics behind this processes. However, making yourself familiar with the programs behind the scenes helps you to make informed decisions. Please go to [resources](resources.html) to read more about what each program is doing.  
+
+## Overview of the pipeline
+
+* Quality control of reads (short, long, or both)
+* Cleaning reads
+* De-novo Assembly (short, long or hybrid)
+*	Quality Control of the assembly and detection of contamination
+*	Identification of the species in the sample
+*	Identification of plasmids, phages and prophages 
+*	Genes Annotation
+*	Comparative genomics (when reference provided) 
+    * Coverage of reference genome
+    * Identification of core genome
+    * Identification of Single Nucleotide Variants (SNV)
+    * Identification of rearrangements and larger deletions
+* Characterization of genes of interest (when genes sequences provided)
+
+
+
+
+# Getting Started
+
+## Make sure you have Nextflow running
+
+Before you get started with the pipeline, make sure you have installed nextflow. 
+
+If you are using a **cluster** there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use `tab` after the word `nextflow` to see if you have different versions available. Ideally use the most recent version.
+
+```
+module add nextflow
+```
+
+If you can have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your computer or your server), you could create a conda environment and install nextflow following the next commands
+
+
+```
+
+conda create -n nextflow
+conda activate nextflow
+conda install -c bioconda nextflow
+
+
+```
+
+Use `conda activate nextflow` every time you want to use nextflow
+
+
+Alternatively, you could install nextflow using the [nextflow installation instructions](https://www.nextflow.io/docs/latest/getstarted.html)
+
+
+## Download the nextflow pipeline
+
+Run the following command
+
+```
+git clone git@github.com:Grinter-Lab/ProkGenomics.git
+
+```
+
+If you have issues consulte the [troubleshoot section](troubleshooting.html) for help
+
+A successful download of the repository should look like this:
+
+```
+Cloning into 'ProkGenomics'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+```
+
+To be able to run the program from any location without using the complete path, run the following commands
+
+```
+# move to the program folder
+cd ProkGenomics/
+
+pwd 
+# This will print your location
+/path/to/dir/program/
+
+export PATH="$PATH:/path/to/dir/program/"
+```
+
+## Set up your working directory
+
+Create a working directory for your project
+
+```
+mkdir Project1
+cd Project1
+
+```
+Create a folder for your raw data
+
+```
+mkdir rawdata
+cd rawdata
+```
+
+##  How to transfer raw data to cluster/server
+
+Open a tab in your terminal from your local computer
+
+```
+# from tab in your local computer
+# scp <location in the server, notice structue as serve:path> <location in your computer where you want the file to go>
+# notice that the wild card allows you to move all files ending in fq.gz. if your files have a different extention please modify accordently (ex. fastq.gz)
+
+scp *fq.gz <username>@<cluster_name>:/srv/home/username/folder/
+
+```
+

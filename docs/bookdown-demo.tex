@@ -1,0 +1,526 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Assembly, Annotation, and Comparative Genomics for Prokaryotes},
+  pdfauthor={Laura Perlaza-Jiménez (PhD)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Assembly, Annotation, and Comparative Genomics for Prokaryotes}
+\author{Laura Perlaza-Jiménez (PhD)}
+\date{Compiled: December 24, 2023}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{start-here}{%
+\chapter{START HERE}\label{start-here}}
+
+{I know command-line and SSH}
+
+{I don't know where to start}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+This \href{https://www.nextflow.io/}{nextflow} pipeline allows you to run several programs using a one-line command. It wraps programs to assemble, annotate, taxonomically identify, genotypic characterize and perform simple comparative genomics on prokaryotic sequencing data. This pipeline is self-contained and is NOT meant to be run in modules (not independent parts of it). This with the intention of simplifying the user interaction and the user knowledge about the bioinformatics behind this processes. However, making yourself familiar with the programs behind the scenes helps you to make informed decisions. Please go to \href{resources.html}{resources} to read more about what each program is doing.
+
+\hypertarget{overview-of-the-pipeline}{%
+\section{Overview of the pipeline}\label{overview-of-the-pipeline}}
+
+\begin{itemize}
+\tightlist
+\item
+  Quality control of reads (short, long, or both)
+\item
+  Cleaning reads
+\item
+  De-novo Assembly (short, long or hybrid)
+\item
+  Quality Control of the assembly and detection of contamination
+\item
+  Identification of the species in the sample
+\item
+  Identification of plasmids, phages and prophages
+\item
+  Genes Annotation
+\item
+  Comparative genomics (when reference provided)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Coverage of reference genome
+  \item
+    Identification of core genome
+  \item
+    Identification of Single Nucleotide Variants (SNV)
+  \item
+    Identification of rearrangements and larger deletions
+  \end{itemize}
+\item
+  Characterization of genes of interest (when genes sequences provided)
+\end{itemize}
+
+\hypertarget{getting-started}{%
+\chapter{Getting Started}\label{getting-started}}
+
+\hypertarget{make-sure-you-have-nextflow-running}{%
+\section{Make sure you have Nextflow running}\label{make-sure-you-have-nextflow-running}}
+
+Before you get started with the pipeline, make sure you have installed nextflow.
+
+If you are using a \textbf{cluster} there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use \texttt{tab} after the word \texttt{nextflow} to see if you have different versions available. Ideally use the most recent version.
+
+\begin{verbatim}
+module add nextflow
+\end{verbatim}
+
+If you can have \href{https://conda.io/projects/conda/en/latest/user-guide/getting-started.html}{conda} installed in your system (either in your computer or your server), you could create a conda environment and install nextflow following the next commands
+
+\begin{verbatim}
+
+conda create -n nextflow
+conda activate nextflow
+conda install -c bioconda nextflow
+
+\end{verbatim}
+
+Use \texttt{conda\ activate\ nextflow} every time you want to use nextflow
+
+Alternatively, you could install nextflow using the \href{https://www.nextflow.io/docs/latest/getstarted.html}{nextflow installation instructions}
+
+\hypertarget{download-the-nextflow-pipeline}{%
+\section{Download the nextflow pipeline}\label{download-the-nextflow-pipeline}}
+
+Run the following command
+
+\begin{verbatim}
+git clone git@github.com:Grinter-Lab/ProkGenomics.git
+\end{verbatim}
+
+If you have issues consulte the \href{troubleshooting.html}{troubleshoot section} for help
+
+A successful download of the repository should look like this:
+
+\begin{verbatim}
+Cloning into 'ProkGenomics'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+\end{verbatim}
+
+To be able to run the program from any location without using the complete path, run the following commands
+
+\begin{verbatim}
+# move to the program folder
+cd ProkGenomics/
+
+pwd 
+# This will print your location
+/path/to/dir/program/
+
+export PATH="$PATH:/path/to/dir/program/"
+\end{verbatim}
+
+\hypertarget{set-up-your-working-directory}{%
+\section{Set up your working directory}\label{set-up-your-working-directory}}
+
+Create a working directory for your project
+
+\begin{verbatim}
+mkdir Project1
+cd Project1
+\end{verbatim}
+
+Create a folder for your raw data
+
+\begin{verbatim}
+mkdir rawdata
+cd rawdata
+\end{verbatim}
+
+\hypertarget{how-to-transfer-raw-data-to-clusterserver}{%
+\section{How to transfer raw data to cluster/server}\label{how-to-transfer-raw-data-to-clusterserver}}
+
+Open a tab in your terminal from your local computer
+
+\begin{verbatim}
+# from tab in your local computer
+# scp <location in the server, notice structue as serve:path> <location in your computer where you want the file to go>
+# notice that the wild card allows you to move all files ending in fq.gz. if your files have a different extention please modify accordently (ex. fastq.gz)
+
+scp *fq.gz <username>@<cluster_name>:/srv/home/username/folder/
+\end{verbatim}
+
+\hypertarget{run-pipeline}{%
+\chapter{Run Pipeline}\label{run-pipeline}}
+
+Remember to put the \href{getting-started.}{program in your \$PATH} if you haven't done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your \href{https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix}{bash profile} (don't play around with it if you don't feel confident about it)
+
+If you added the program to your \texttt{\$PATH} successfully you should be able to run
+
+\begin{verbatim}
+nextflow run ProkGenomics
+\end{verbatim}
+
+If it starts correctly, you will see something like
+
+\begin{verbatim}
+N E X T F L O W  ~  version 21.10.6
+Launching `main.nf` [focused_noether] - revision: eb930f0e69
+\end{verbatim}
+
+If you don't see a version of that go to \href{troubleshooting.html}{troubleshoot} to look for possible solutions
+
+\hypertarget{simple-run}{%
+\section{Simple run}\label{simple-run}}
+
+\begin{verbatim}
+nextflow run ProkGenomics --sample_name '1-77321' -profile conda
+\end{verbatim}
+
+\textbf{Parameters you can use:}
+
+\texttt{-\/-sample\_path\ ./rawdata/}\strut \\
+The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for \href{getting-started.html}{setting up the working folder}. if you have your reads somewhere else you should change this parameter to that path.
+
+\texttt{-\/-sample\_name\ 1-77321}
+The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names.
+
+\texttt{-\/-assembly\_type\ short}
+This parameter can be short long or hybrid. The default is `short'. if you have short reads you don't have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads.
+
+\texttt{-\/-longreads\ \ ./rawdata/longreads/}
+Path to the long reads.
+
+\texttt{-\/-threads\ 16}
+Number of threats to use. More threats faster your processing. Make sure you know what is available for you.
+
+\texttt{-\/-outdir\ 1-77321}
+The results will be in a folder in the working directory with the same sample name and \_results ex. 1-77321\_results.
+
+\texttt{-\/-assembly}
+if you provide a path to an assembly from the reads, the assembly steps will be skipped.
+
+\texttt{-\/-reference\ reference/ReferenceGenome.fasta}
+If you have a reference genome put the path here. This will activate all the comparative genomics steps.
+
+\texttt{-\/-adapter\_file\ TruSeq3-PE.fa}
+To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are ``TruSeq2-SE.fa'', ``TruSeq2-PE.fa'', ``TruSeq3-PE.fa''. The default is ``TruSeq3-PE.fa''.
+
+\texttt{-\/-genes\_interest\ GenesBD/*fasta}
+Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format.
+
+\hypertarget{understand-outputs}{%
+\chapter{Understand Outputs}\label{understand-outputs}}
+
+(still in development)
+\#\# OUTPUTS
+
+Folder with each analysis will be generated.
+
+folder \textbf{test\_output}:
+This folder contains all the intermedia files used for the program. These files will help you to check in detail where your alignment come from. In case you are puzzle by your final table. Each folder contains:
+
+\textbf{GenomeName.chr.genes.faa}: all predicted genes in AA\\
+\textbf{GenomeName.chr.genes.fasta}: all predicted genes in nt\\
+\textbf{GenomeName.chr.genes.gff}: all predicted genes in gff format with the fasta file at the end\\
+\textbf{GenomeName.chromosome.GeneName.Blast.txt}: blast results of the gene against the genome\\
+\textbf{GenomeName.chromosome.GeneName.fasta.plusRef.fasta}: fasta of gene reference and gene in the genome
+
+folder \emph{test\_results}\\
+This folder contains all final results files and a folder with the predicted peptides that match with the genes of interest\\
+\textbf{GeneName.fasta.nt\_alignment.fasta}: The alignment of each gene of interest for all the genomes analysed\\
+\textbf{test.alignments.description.txt}: table with the descriptive information of the alignments, stop codons, gaps, insertions, SNPs, N.copies (numbers of copies)\\
+\textbf{Peptides} (folder): predicted peptides that match with the genes of interest
+
+Additional files when running any of the --Kleb, --Esch or --Ent options
+
+folder \textbf{test\_output}:\\
+Each assembly has two folders one for the chromosome and one for the plasmid. Examples here are about the chromosome, \emph{.plasmid\_} are for plasmids\\
+\textbf{GenomeName.chromosome\_contigslist.txt}:list of contigs in the assembly that are chromosomal\\
+\textbf{GenomeName.chromosome.fasta}: fasta file of chromosomal contigs\\
+\textbf{GenomeName.fsa\_nt.chromosomesummary.txt}: summary results from chromosome prediction from mlplasmid
+
+\hypertarget{write-methods}{%
+\chapter{Write Methods}\label{write-methods}}
+
+Still in development
+
+\hypertarget{troubleshooting}{%
+\chapter{Troubleshooting}\label{troubleshooting}}
+
+\hypertarget{gitgithub.com-permission-denied}{%
+\section{\texorpdfstring{\href{mailto:git@github.com}{\nolinkurl{git@github.com}}: Permission denied}{git@github.com: Permission denied}}\label{gitgithub.com-permission-denied}}
+
+You may see this error:
+
+\begin{verbatim}
+Cloning into 'ProkGenomics'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+\end{verbatim}
+
+Note that this is a private repository, you may required to log in using your github details. Github now requires for you to setup a token key to access private repositories, please follow the \href{https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens}{github instructions to set up one}
+
+\hypertarget{resources}{%
+\chapter{Resources}\label{resources}}
+
+\url{https://www.bioinformatics.babraham.ac.uk/projects/fastqc/}
+
+\url{http://www.usadellab.org/cms/?page=trimmomatic}
+
+\url{https://github.com/rrwick/Unicycler}
+
+Other programs
+
+\url{https://bactopia.github.io/v3.0.0/}
+
+\url{https://proksee.ca/}
+
+\url{https://genome.usegalaxy.org.au/}
+
+\hypertarget{command-line-intro}{%
+\chapter{Command Line Intro}\label{command-line-intro}}
+
+If you are completely new to working with command line the following short introduction should be useful to get you started. Please read carefully this section, it will help you to understand instructions in later sections.
+
+\hypertarget{general-syntax-and-conventions}{%
+\section{General syntax and conventions:}\label{general-syntax-and-conventions}}
+
+• Code or command are instructions directly given to the computer through a console or terminal window. Code or command lines in this tutorial are written with \texttt{this\ style} or
+
+\begin{verbatim}
+in this boxes
+\end{verbatim}
+
+• If a string is written between \textless{} \textgreater{} it means that you have to type what that means in your case. For example: Login as: \texttt{\textless{}your\ username\textgreater{}} this means you have to type your user name in that space without the \texttt{\textless{}\ \textgreater{}}
+
+For example, the following instructions should look like:
+
+\begin{verbatim}
+cp <file_name> <file_destination>
+\end{verbatim}
+
+My file name os \texttt{myfile.txt} and my file destination is \texttt{newfolder}
+
+\begin{verbatim}
+cp myfile.txt newfolder
+\end{verbatim}
+
+• When asterisk \texttt{*} is used it means all of that kind. For example: \texttt{ls\ *.fasta} will print a list of all files that have the extension .fasta
+
+• Every line starting with \texttt{\#} is a comment. There lines are not interpreted by your computer, there are there only to give you additional information.
+
+\hypertarget{programs}{%
+\subsection{Programs:}\label{programs}}
+
+Command lines for executing programs usually looks like:
+
+\begin{verbatim}
+program --input <inputfile>
+\end{verbatim}
+
+where\\
+\texttt{program} is the program in question\\
+\texttt{-\/-input} is the option or parameter\\
+\texttt{inputfile} is the argument
+
+• Options/parameters for a program are denotated by a dash and a letter as:\texttt{-f} or a double dash and a string as: \texttt{-\/-file}. If an option is not required but optional is often explained using \texttt{{[}\ {]}}, for example: \texttt{{[}-t\ 8{]}}
+
+• Arguments are the input to the options/parameters. For example \texttt{-f\ myfile.txt}. -f is the option to input your file and myfile.txt is the argument for that option, the name of your file. The arguments are often explained using \textless{} \textgreater. When several arguments are possible for an option pipes are used to show the different possibilities, for example \texttt{{[}-f\ sam\textbar{}bam{]}}. This means the option \texttt{-f} allows sam or bam formats
+
+\hypertarget{basic-commands}{%
+\section{Basic commands:}\label{basic-commands}}
+
+When you enter your terminal your prompt consists of: \texttt{HOST\_NAME:MACHINE\ CURRENT\_DIRECTORY\ \$} everything after \$ is your command line. You can use the following basic commands to access information or perform tasks in your computer.
+
+• \textbf{c}hange \textbf{d}irectory
+
+\begin{verbatim}
+cd <name of directory you want to change to>
+\end{verbatim}
+
+\texttt{cd} or \texttt{cd\ \textasciitilde{}} move you to your home directory
+
+• \textbf{p}rint \textbf{w}orking \textbf{d}irectory
+
+\begin{verbatim}
+pwd
+\end{verbatim}
+
+• \textbf{l}i\textbf{s}t your files
+
+\begin{verbatim}
+ls
+\end{verbatim}
+
+• \textbf{m}a\textbf{k}e \textbf{dir}*ectory
+
+\begin{verbatim}
+mkdir <new folder name>
+\end{verbatim}
+
+• \textbf{c}o\textbf{p}y (needs file to be copied and destination).
+
+\begin{verbatim}
+cp <path of file to be copy> <destination path>
+\end{verbatim}
+
+\hypertarget{files-system}{%
+\section{Files system}\label{files-system}}
+
+• Please note that directories are structured in a \href{https://www.geeksforgeeks.org/structures-of-directory-in-operating-system/}{hierarchical system}. You have to know where you are standing to ask the computer to move to the correct folder.
+
+Example of folder structure:
+
+\begin{verbatim}
+           | subfolder_1 
+           | 
+main_folder
+           |
+           | subfolder_2
+                        |
+                        |subfolder_2.1 (YOU ARE HERE)
+\end{verbatim}
+
+\begin{verbatim}
+#where am I?
+
+pwd
+
+#shows this path: /main_folder/subfolder_2/subfolder_2.1
+
+# I want to go to the folder conteining this folder
+
+cd ..
+
+# moves to /main_folder/subfolder_2/
+
+
+# I want to go to the folder conteining this folder and change to a folder that is there
+
+
+cd ../subfolder_1
+
+#moves to subfolder_1
+\end{verbatim}
+
+\hypertarget{connect-to-the-cluster}{%
+\chapter{Connect to the cluster}\label{connect-to-the-cluster}}
+
+\hypertarget{macs}{%
+\subsection{Macs}\label{macs}}
+
+If you are working on Mac you can directly open the terminal from applications or click the Launchpad icon in the Dock, type \texttt{Terminal} in the search field, then click Terminal. You will see a version of this:
+
+type the following command
+
+\begin{verbatim}
+ssh <username>@<cluster_name>
+\end{verbatim}
+
+where \texttt{\textless{}username\textgreater{}} is your authcate and the \texttt{\textless{}cluster\_name\textgreater{}} is the cluster you are connecting to. Click enter, you will be asked for a password. Enter your password and click enter. Note you will not see the characters as they are typed. You are now in your home directory on the cluster.
+
+\hypertarget{windows}{%
+\subsection{Windows}\label{windows}}
+
+If you are on a windows-based PC, you will need to download \href{https://www.putty.org/}{PuTTY}.
+
+In the hostname (or IP address) box, enter the hostname that you were provided, ie. \texttt{\textless{}username\textgreater{}@\textless{}cluster\_name\textgreater{}}, where \texttt{\textless{}username\textgreater{}} where \texttt{\textless{}username\textgreater{}} is your authcate and the \texttt{\textless{}cluster\_name\textgreater{}} is the cluster you are connecting to. Ensure the connection type is SSH. Click open. You will be prompted to enter your username (authcate) and password in the terminal window. Enter your credentials and click enter. Note you will not see the characters as they are typed. You are now in your home directory on the cluster.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Now you are ready to go
+{\href{introduction.html}{Let's get started}}
+
+\end{document}

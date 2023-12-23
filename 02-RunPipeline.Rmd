@@ -1,0 +1,77 @@
+# Run Pipeline
+
+Remember to put the [program in your $PATH ](getting-started.) if you haven't done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your [bash profile](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) (don't play around with it if you don't feel confident about it)
+
+If you added the program to your ```$PATH``` successfully you should be able to run
+
+```
+nextflow run ProkGenomics
+
+```
+
+If it starts correctly, you will see something like
+
+```
+N E X T F L O W  ~  version 21.10.6
+Launching `main.nf` [focused_noether] - revision: eb930f0e69
+
+```
+
+If you don't see a version of that go to [troubleshoot](troubleshooting.html) to look for possible solutions
+
+
+## Simple run
+
+```
+nextflow run ProkGenomics --sample_name '1-77321' -profile conda
+```
+
+**Parameters you can use:**
+
+```--sample_path ./rawdata/
+```  
+The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for [setting up the working folder](getting-started.html). if you have your reads somewhere else you should change this parameter to that path.    
+
+
+```--sample_name 1-77321
+```
+The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names.  
+
+
+
+```--assembly_type short```
+This parameter can be short long or hybrid. The default is 'short'. if you have short reads you don't have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads.  
+
+
+
+```--longreads  ./rawdata/longreads/```
+Path to the long reads.   
+
+
+
+```--threads 16```
+Number of threats to use. More threats faster your processing. Make sure you know what is available for you.   
+
+
+
+```--outdir 1-77321```
+The results will be in a folder in the working directory with the same sample name and _results ex. 1-77321_results.   
+
+
+
+```--assembly ```
+if you provide a path to an assembly from the reads, the assembly steps will be skipped.   
+
+
+```--reference reference/ReferenceGenome.fasta```
+If you have a reference genome put the path here. This will activate all the comparative genomics steps.    
+
+
+
+```--adapter_file TruSeq3-PE.fa```
+To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are  “TruSeq2-SE.fa”, “TruSeq2-PE.fa”, "TruSeq3-PE.fa". The default is "TruSeq3-PE.fa".   
+
+
+
+```--genes_interest GenesBD/*fasta```
+Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format. 
