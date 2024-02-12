@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Assembly, Annotation, and Comparative Genomics for Prokaryotes</title>
+
+    <meta name="author" content="Laura Perlaza-Jiménez (PhD)" />
+  
+   <meta name="description" content="This is the documentation to run the nextflow pipeline for Prokaryotic assembly, annotation, characterization and comparative genomics." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Assembly, Annotation, and Comparative Genomics for Prokaryotes" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the documentation to run the nextflow pipeline for Prokaryotic assembly, annotation, characterization and comparative genomics." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Assembly, Annotation, and Comparative Genomics for Prokaryotes" />
+  
+  <meta name="twitter:description" content="This is the documentation to run the nextflow pipeline for Prokaryotic assembly, annotation, characterization and comparative genomics." />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.6.1/transition.js"></script>
+    <script src="libs/bs3compat-0.6.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.6.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<!--bookdown:title:start-->
+<!--bookdown:title:end-->
+
+<!--bookdown:toc:start-->
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Assembly, Annotation, and Comparative Genomics for Prokaryotes</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<!--bookdown:toc:end-->
+<!--bookdown:body:start-->
+<div id="start-here" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> START HERE</h1>
+<button class="bluesquare" title>
+<span><a href="getting-started.html" style="color: white;">I know command-line and SSH</a></span>
+</button>
+<button class="bluesquare" title>
+<span><a href="command-line-intro.html" style="color: white;">I don’t know where to start</a></span>
+</button>
+<!--chapter:end:index.Rmd-->
+</div>
+<div id="introduction" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Introduction</h1>
+<p>This <a href="https://www.nextflow.io/">nextflow</a> pipeline allows you to run several programs using a one-line command. It wraps programs to assemble, annotate, taxonomically identify, genotypic characterize and perform simple comparative genomics on prokaryotic sequencing data. This pipeline is self-contained and is NOT meant to be run in modules (not independent parts of it). This with the intention of simplifying the user interaction and the user knowledge about the bioinformatics behind this processes. However, making yourself familiar with the programs behind the scenes helps you to make informed decisions. Please go to <a href="resources.html">resources</a> to read more about what each program is doing.</p>
+<div id="overview-of-the-pipeline" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview of the pipeline</h2>
+<ul>
+<li>Quality control of reads (short, long, or both)</li>
+<li>Cleaning reads</li>
+<li>De-novo Assembly (short, long or hybrid)</li>
+<li>Quality Control of the assembly and detection of contamination</li>
+<li>Identification of the species in the sample</li>
+<li>Identification of plasmids, phages and prophages</li>
+<li>Genes Annotation</li>
+<li>Comparative genomics (when reference provided)
+<ul>
+<li>Coverage of reference genome</li>
+<li>Identification of core genome</li>
+<li>Identification of Single Nucleotide Variants (SNV)</li>
+<li>Identification of rearrangements and larger deletions</li>
+</ul></li>
+<li>Characterization of genes of interest (when genes sequences provided)</li>
+</ul>
+</div>
+</div>
+<div id="getting-started" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Getting Started</h1>
+<div id="make-sure-you-have-nextflow-running" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Make sure you have Nextflow running</h2>
+<p>Before you get started with the pipeline, make sure you have installed nextflow.</p>
+<p>If you are using a <strong>cluster</strong> there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>nextflow</code> to see if you have different versions available. Ideally use the most recent version.</p>
+<pre><code>module add nextflow</code></pre>
+<p>If you can have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your computer or your server), you could create a conda environment and install nextflow following the next commands</p>
+<pre><code>
+conda create -n nextflow
+conda activate nextflow
+conda install -c bioconda nextflow
+
+</code></pre>
+<p>Use <code>conda activate nextflow</code> every time you want to use nextflow</p>
+<p>Alternatively, you could install nextflow using the <a href="https://www.nextflow.io/docs/latest/getstarted.html">nextflow installation instructions</a></p>
+</div>
+<div id="download-the-nextflow-pipeline" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Download the nextflow pipeline</h2>
+<p>Run the following command</p>
+<pre><code>git clone git@github.com:Grinter-Lab/ProkGenomics.git
+</code></pre>
+<p>If you have issues consulte the <a href="troubleshooting.html">troubleshoot section</a> for help</p>
+<p>A successful download of the repository should look like this:</p>
+<pre><code>Cloning into &#39;ProkGenomics&#39;...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.</code></pre>
+<p>To be able to run the program from any location without using the complete path, run the following commands</p>
+<pre><code># move to the program folder
+cd ProkGenomics/
+
+pwd 
+# This will print your location
+/path/to/dir/program/
+
+export PATH=&quot;$PATH:/path/to/dir/program/&quot;</code></pre>
+</div>
+<div id="set-up-your-working-directory" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Set up your working directory</h2>
+<p>Create a working directory for your project</p>
+<pre><code>mkdir Project1
+cd Project1
+</code></pre>
+<p>Create a folder for your raw data</p>
+<pre><code>mkdir rawdata
+cd rawdata</code></pre>
+</div>
+<div id="how-to-transfer-raw-data-to-clusterserver" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> How to transfer raw data to cluster/server</h2>
+<p>Open a tab in your terminal from your local computer</p>
+<pre><code># from tab in your local computer
+# scp &lt;location in the server, notice structue as serve:path&gt; &lt;location in your computer where you want the file to go&gt;
+# notice that the wild card allows you to move all files ending in fq.gz. if your files have a different extention please modify accordently (ex. fastq.gz)
+
+scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
+</code></pre>
+<!--chapter:end:01-GettingStarted.Rmd-->
+</div>
+</div>
+<div id="run-pipeline" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Run Pipeline</h1>
+<p>Remember to put the <a href="getting-started.">program in your $PATH</a> if you haven’t done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">bash profile</a> (don’t play around with it if you don’t feel confident about it)</p>
+<p>If you added the program to your <code>$PATH</code> successfully you should be able to run</p>
+<pre><code>nextflow run ProkGenomics
+</code></pre>
+<p>If it starts correctly, you will see something like</p>
+<pre><code>N E X T F L O W  ~  version 21.10.6
+Launching `main.nf` [focused_noether] - revision: eb930f0e69
+</code></pre>
+<p>If you don’t see a version of that go to <a href="troubleshooting.html">troubleshoot</a> to look for possible solutions</p>
+<div id="simple-run" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Simple run</h2>
+<pre><code>nextflow run ProkGenomics --sample_name &#39;1-77321&#39; -profile conda</code></pre>
+<p><strong>Parameters you can use:</strong></p>
+<p><code>--sample_path ./rawdata/</code><br />
+The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for <a href="getting-started.html">setting up the working folder</a>. if you have your reads somewhere else you should change this parameter to that path.</p>
+<p><code>--sample_name 1-77321</code>
+The sample name is the prefix of your samples files. it doesn’t have a default because I don’t know your sample names.</p>
+<p><code>--assembly_type short</code>
+This parameter can be short long or hybrid. The default is ‘short’. if you have short reads you don’t have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads.</p>
+<p><code>--longreads  ./rawdata/longreads/</code>
+Path to the long reads.</p>
+<p><code>--threads 16</code>
+Number of threats to use. More threats faster your processing. Make sure you know what is available for you.</p>
+<p><code>--outdir 1-77321</code>
+The results will be in a folder in the working directory with the same sample name and _results ex. 1-77321_results.</p>
+<p><code>--assembly</code>
+if you provide a path to an assembly from the reads, the assembly steps will be skipped.</p>
+<p><code>--reference reference/ReferenceGenome.fasta</code>
+If you have a reference genome put the path here. This will activate all the comparative genomics steps.</p>
+<p><code>--adapter_file TruSeq3-PE.fa</code>
+To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are “TruSeq2-SE.fa”, “TruSeq2-PE.fa”, “TruSeq3-PE.fa”. The default is “TruSeq3-PE.fa”.</p>
+<p><code>--genes_interest GenesBD/*fasta</code>
+Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format.</p>
+<!--chapter:end:02-RunPipeline.Rmd-->
+</div>
+</div>
+<div id="understand-outputs" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Understand Outputs</h1>
+<p>(still in development)
+## OUTPUTS</p>
+<p>Folder with each analysis will be generated.</p>
+<p>folder <strong>test_output</strong>:
+This folder contains all the intermedia files used for the program. These files will help you to check in detail where your alignment come from. In case you are puzzle by your final table. Each folder contains:</p>
+<p><strong>GenomeName.chr.genes.faa</strong>: all predicted genes in AA<br />
+<strong>GenomeName.chr.genes.fasta</strong>: all predicted genes in nt<br />
+<strong>GenomeName.chr.genes.gff</strong>: all predicted genes in gff format with the fasta file at the end<br />
+<strong>GenomeName.chromosome.GeneName.Blast.txt</strong>: blast results of the gene against the genome<br />
+<strong>GenomeName.chromosome.GeneName.fasta.plusRef.fasta</strong>: fasta of gene reference and gene in the genome</p>
+<p>folder <em>test_results</em><br />
+This folder contains all final results files and a folder with the predicted peptides that match with the genes of interest<br />
+<strong>GeneName.fasta.nt_alignment.fasta</strong>: The alignment of each gene of interest for all the genomes analysed<br />
+<strong>test.alignments.description.txt</strong>: table with the descriptive information of the alignments, stop codons, gaps, insertions, SNPs, N.copies (numbers of copies)<br />
+<strong>Peptides</strong> (folder): predicted peptides that match with the genes of interest</p>
+<p>Additional files when running any of the –Kleb, –Esch or –Ent options</p>
+<p>folder <strong>test_output</strong>:<br />
+Each assembly has two folders one for the chromosome and one for the plasmid. Examples here are about the chromosome, <em>.plasmid_</em> are for plasmids<br />
+<strong>GenomeName.chromosome_contigslist.txt</strong>:list of contigs in the assembly that are chromosomal<br />
+<strong>GenomeName.chromosome.fasta</strong>: fasta file of chromosomal contigs<br />
+<strong>GenomeName.fsa_nt.chromosomesummary.txt</strong>: summary results from chromosome prediction from mlplasmid</p>
+<!--chapter:end:03-UnderstandOutputs.Rmd-->
+</div>
+<div id="write-methods" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Write Methods</h1>
+<p>Still in development</p>
+<!--chapter:end:04-WriteMethods.Rmd-->
+</div>
+<div id="troubleshooting" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Troubleshooting</h1>
+<div id="gitgithub.com-permission-denied" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> <a href="mailto:git@github.com" class="email">git@github.com</a>: Permission denied</h2>
+<p>You may see this error:</p>
+<pre><code>Cloning into &#39;ProkGenomics&#39;...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.</code></pre>
+<p>Note that this is a private repository, you may required to log in using your github details. Github now requires for you to setup a token key to access private repositories, please follow the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">github instructions to set up one</a></p>
+<!--chapter:end:05-Troubleshooting.Rmd-->
+</div>
+</div>
+<div id="resources" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Resources</h1>
+<p><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" class="uri">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a></p>
+<p><a href="http://www.usadellab.org/cms/?page=trimmomatic" class="uri">http://www.usadellab.org/cms/?page=trimmomatic</a></p>
+<p><a href="https://github.com/rrwick/Unicycler" class="uri">https://github.com/rrwick/Unicycler</a></p>
+<p>Other programs</p>
+<p><a href="https://bactopia.github.io/v3.0.0/" class="uri">https://bactopia.github.io/v3.0.0/</a></p>
+<p><a href="https://proksee.ca/" class="uri">https://proksee.ca/</a></p>
+<p><a href="https://genome.usegalaxy.org.au/" class="uri">https://genome.usegalaxy.org.au/</a></p>
+<!--chapter:end:06-Resources.Rmd-->
+</div>
+<div id="command-line-intro" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Command Line Intro</h1>
+<p>If you are completely new to working with command line the following short introduction should be useful to get you started. Please read carefully this section, it will help you to understand instructions in later sections.</p>
+<div id="general-syntax-and-conventions" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> General syntax and conventions:</h2>
+<p>• Code or command are instructions directly given to the computer through a console or terminal window. Code or command lines in this tutorial are written with <code>this style</code> or</p>
+<pre><code>in this boxes</code></pre>
+<p>• If a string is written between &lt; &gt; it means that you have to type what that means in your case. For example: Login as: <code>&lt;your username&gt;</code> this means you have to type your user name in that space without the <code>&lt; &gt;</code></p>
+<p>For example, the following instructions should look like:</p>
+<pre><code>cp &lt;file_name&gt; &lt;file_destination&gt;</code></pre>
+<p>My file name os <code>myfile.txt</code> and my file destination is <code>newfolder</code></p>
+<pre><code>cp myfile.txt newfolder
+</code></pre>
+<p>• When asterisk <code>*</code> is used it means all of that kind. For example: <code>ls *.fasta</code> will print a list of all files that have the extension .fasta</p>
+<p>• Every line starting with <code>#</code> is a comment. There lines are not interpreted by your computer, there are there only to give you additional information.</p>
+<div id="programs" class="section level3" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Programs:</h3>
+<p>Command lines for executing programs usually looks like:</p>
+<pre><code>program --input &lt;inputfile&gt;</code></pre>
+<p>where<br />
+<code>program</code> is the program in question<br />
+<code>--input</code> is the option or parameter<br />
+<code>inputfile</code> is the argument</p>
+<p>• Options/parameters for a program are denotated by a dash and a letter as:<code>-f</code> or a double dash and a string as: <code>--file</code>. If an option is not required but optional is often explained using <code>[ ]</code>, for example: <code>[-t 8]</code></p>
+<p>• Arguments are the input to the options/parameters. For example <code>-f myfile.txt</code>. -f is the option to input your file and myfile.txt is the argument for that option, the name of your file. The arguments are often explained using &lt; &gt;. When several arguments are possible for an option pipes are used to show the different possibilities, for example <code>[-f sam|bam]</code>. This means the option <code>-f</code> allows sam or bam formats</p>
+</div>
+</div>
+<div id="basic-commands" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Basic commands:</h2>
+<p>When you enter your terminal your prompt consists of: <code>HOST_NAME:MACHINE CURRENT_DIRECTORY $</code> everything after $ is your command line. You can use the following basic commands to access information or perform tasks in your computer.</p>
+<p>• <strong>c</strong>hange <strong>d</strong>irectory</p>
+<pre><code>cd &lt;name of directory you want to change to&gt;</code></pre>
+<p><code>cd</code> or <code>cd ~</code> move you to your home directory</p>
+<p>• <strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory</p>
+<pre><code>pwd</code></pre>
+<p>• <strong>l</strong>i<strong>s</strong>t your files</p>
+<pre><code>ls</code></pre>
+<p>• <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>*ectory</p>
+<pre><code>mkdir &lt;new folder name&gt;</code></pre>
+<p>• <strong>c</strong>o<strong>p</strong>y (needs file to be copied and destination).</p>
+<pre><code>cp &lt;path of file to be copy&gt; &lt;destination path&gt;</code></pre>
+</div>
+<div id="files-system" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Files system</h2>
+<p>• Please note that directories are structured in a <a href="https://www.geeksforgeeks.org/structures-of-directory-in-operating-system/">hierarchical system</a>. You have to know where you are standing to ask the computer to move to the correct folder.</p>
+<p>Example of folder structure:</p>
+<pre><code>           | subfolder_1 
+           | 
+main_folder
+           |
+           | subfolder_2
+                        |
+                        |subfolder_2.1 (YOU ARE HERE)
+</code></pre>
+<pre><code>#where am I?
+
+pwd
+
+#shows this path: /main_folder/subfolder_2/subfolder_2.1
+
+# I want to go to the folder conteining this folder
+
+cd ..
+
+# moves to /main_folder/subfolder_2/
+
+
+# I want to go to the folder conteining this folder and change to a folder that is there
+
+
+cd ../subfolder_1
+
+#moves to subfolder_1</code></pre>
+</div>
+</div>
+<div id="connect-to-the-cluster" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Connect to the cluster</h1>
+<div id="macs" class="section level3" number="10.0.1">
+<h3><span class="header-section-number">10.0.1</span> Macs</h3>
+<p>If you are working on Mac you can directly open the terminal from applications or click the Launchpad icon in the Dock, type <code>Terminal</code> in the search field, then click Terminal. You will see a version of this:</p>
+<p><img src="images/terminal.png" width="500"></p>
+<p>type the following command</p>
+<pre><code>ssh &lt;username&gt;@&lt;cluster_name&gt;</code></pre>
+<p>where <code>&lt;username&gt;</code> is your authcate and the <code>&lt;cluster_name&gt;</code> is the cluster you are connecting to. Click enter, you will be asked for a password. Enter your password and click enter. Note you will not see the characters as they are typed. You are now in your home directory on the cluster.</p>
+</div>
+<div id="windows" class="section level3" number="10.0.2">
+<h3><span class="header-section-number">10.0.2</span> Windows</h3>
+<p>If you are on a windows-based PC, you will need to download <a href="https://www.putty.org/">PuTTY</a>.</p>
+<p><img src="images/putty.png" width="500"></p>
+<p>In the hostname (or IP address) box, enter the hostname that you were provided, ie. <code>&lt;username&gt;@&lt;cluster_name&gt;</code>, where <code>&lt;username&gt;</code> where <code>&lt;username&gt;</code> is your authcate and the <code>&lt;cluster_name&gt;</code> is the cluster you are connecting to. Ensure the connection type is SSH. Click open. You will be prompted to enter your username (authcate) and password in the terminal window. Enter your credentials and click enter. Note you will not see the characters as they are typed. You are now in your home directory on the cluster.</p>
+<hr />
+<p>Now you are ready to go
+<button class="g2b-button" title=""><span><a href="introduction.html">Let’s get started</a></span></button></p>
+<!--chapter:end:07-CommandLineIntro.Rmd-->
+</div>
+</div>
+<!--bookdown:body:end-->
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Assembly, Annotation, and Comparative Genomics for Prokaryotes</strong>" was written by Laura Perlaza-Jiménez (PhD). It was last built on Compiled: February 12, 2024.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+</body>
+
+</html>
