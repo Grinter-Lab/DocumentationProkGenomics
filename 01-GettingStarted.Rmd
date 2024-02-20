@@ -11,7 +11,7 @@ This [nextflow](https://www.nextflow.io/) pipeline allows you to run several pro
 *	Identification of the species in the sample
 *	Identification of plasmids, phages and prophages 
 *	Genes Annotation
-*	Comparative genomics (when reference provided) 
+*	Comparative genomics (when genome reference provided) 
     * Coverage of reference genome
     * Identification of core genome
     * Identification of Single Nucleotide Variants (SNV)
@@ -30,17 +30,18 @@ Before you get started with the pipeline, make sure you have installed nextflow.
 If you are using a **cluster** there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use `tab` after the word `nextflow` to see if you have different versions available. Ideally use the most recent version.
 
 ```
+# if you are in a cluster
 module add nextflow
 ```
 
-If you can have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your computer or your server), you could create a conda environment and install nextflow following the next commands
+If you can have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your **computer** or your **server**), you could create a conda environment and install nextflow following the next commands
 
 
 ```
-
+# if you can create conda env, this could work for a cluster, server or your own computer. 
 conda create -n nextflow
 conda activate nextflow
-conda install -c bioconda nextflow
+conda install -c bioconda nextflow=21.10.6
 
 
 ```

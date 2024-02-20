@@ -1,6 +1,100 @@
-# Understand Outputs
- (still in development)
+# Understand Outputs (in development)
+
+This pipeline produce several different outputs. The main results are stored in a folder names main_results
+
 ## OUTPUTS
+
+Folder structure
+```
+1-77321_results
+├── fastqc
+│   ├── 1-77321-LFA6246_L2_1_fastqc.html
+│   ├── 1-77321-LFA6246_L2_1_fastqc.zip
+│   ├── 1-77321-LFA6246_L2_2_fastqc.html
+│   ├── 1-77321-LFA6246_L2_2_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.zip
+│   └── software_details.txt
+├── trimmomatic
+│   ├── 1-77321-LFA6246_L2.R1.trim.fastq
+│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim.fastq
+│   ├── 1-77321-LFA6246_L2.R2.trim.fastq
+│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim.fastq
+│   └── software_details.txt
+└── unicycler
+    ├── 1-77321-LFA6246_L2
+    │   ├── 001_spades_graph_k027.gfa
+    │   ├── 001_spades_graph_k053.gfa
+    │   ├── 001_spades_graph_k071.gfa
+    │   ├── 001_spades_graph_k087.gfa
+    │   ├── 001_spades_graph_k099.gfa
+    │   ├── 001_spades_graph_k111.gfa
+    │   ├── 001_spades_graph_k119.gfa
+    │   ├── 001_spades_graph_k127.gfa
+    │   ├── 002_depth_filter.gfa
+    │   ├── 003_overlaps_removed.gfa
+    │   ├── 004_bridges_applied.gfa
+    │   ├── 005_final_clean.gfa
+    │   ├── assembly.fasta <<<<< Complete de novo assembly
+    │   ├── assembly.gfa
+    │   └── unicycler.log
+    └── software_details.txt
+├── checkm
+│   ├── 1-77321-LFA6246_L2.tsv <<<<< QC de novo assembly
+│   └── software_details.txt
+├── checkv 
+│   ├── 1-77321-LFA6246_L2
+│   │   ├── complete_genomes.tsv
+│   │   ├── completeness.tsv
+│   │   ├── contamination.tsv
+│   │   ├── proviruses.fna
+│   │   ├── quality_summary.tsv <<<<< Phages or Provirus detected
+│   │   └── viruses.fna
+│   └── software_details.txt
+├── prokka
+│   ├── 1-77321-LFA6246_L2_annotation_output
+│   │   ├── 1-77321-LFA6246_L2.err
+│   │   ├── 1-77321-LFA6246_L2.faa
+│   │   ├── 1-77321-LFA6246_L2.ffn
+│   │   ├── 1-77321-LFA6246_L2.fna
+│   │   ├── 1-77321-LFA6246_L2.fsa
+│   │   ├── 1-77321-LFA6246_L2.gbk <<<<< Gene Annotation
+│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Gene Annotation
+│   │   ├── 1-77321-LFA6246_L2.log
+│   │   ├── 1-77321-LFA6246_L2.sqn
+│   │   ├── 1-77321-LFA6246_L2.tbl
+│   │   ├── 1-77321-LFA6246_L2.tsv
+│   │   └── 1-77321-LFA6246_L2.txt
+│   └── software_details.txt
+├── pharokka
+│   ├── 1-77321-LFA6246_L2_annotation_output
+│   │   ├── 1-77321-LFA6246_L2.err
+│   │   ├── 1-77321-LFA6246_L2.faa
+│   │   ├── 1-77321-LFA6246_L2.ffn
+│   │   ├── 1-77321-LFA6246_L2.fna
+│   │   ├── 1-77321-LFA6246_L2.fsa
+│   │   ├── 1-77321-LFA6246_L2.gbk
+│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Phages or Provirus annotation
+│   │   ├── 1-77321-LFA6246_L2.log
+│   │   ├── 1-77321-LFA6246_L2.sqn
+│   │   ├── 1-77321-LFA6246_L2.tbl
+│   │   ├── 1-77321-LFA6246_L2.tsv
+│   │   └── 1-77321-LFA6246_L2.txt
+│   └── software_details.txt
+
+  
+
+```
+
+|File|Description|Columns|
+| :---|:---- |
+| | |
 
 Folder with each analysis will be generated.
 

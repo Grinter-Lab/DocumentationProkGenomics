@@ -47,7 +47,7 @@
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="" href="getting-started.html"><span class="header-section-number">3</span> Getting Started</a></li>
 <li><a class="active" href="run-pipeline.html"><span class="header-section-number">4</span> Run Pipeline</a></li>
-<li><a class="" href="understand-outputs.html"><span class="header-section-number">5</span> Understand Outputs</a></li>
+<li><a class="" href="understand-outputs-in-development.html"><span class="header-section-number">5</span> Understand Outputs (in development)</a></li>
 <li><a class="" href="write-methods.html"><span class="header-section-number">6</span> Write Methods</a></li>
 <li><a class="" href="troubleshooting.html"><span class="header-section-number">7</span> Troubleshooting</a></li>
 <li><a class="" href="resources.html"><span class="header-section-number">8</span> Resources</a></li>
@@ -66,7 +66,11 @@
 </h1>
 <p>Remember to put the <a href="getting-started.">program in your $PATH</a> if you haven’t done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">bash profile</a> (don’t play around with it if you don’t feel confident about it)</p>
 <p>If you added the program to your <code>$PATH</code> successfully you should be able to run</p>
-<pre><code>nextflow run ProkGenomics
+<pre><code>#remember to activate the conda env if you are using one
+conda activate nextflow
+
+#run the pipeline
+nextflow run ProkGenomics
 </code></pre>
 <p>If it starts correctly, you will see something like</p>
 <pre><code>N E X T F L O W  ~  version 21.10.6
@@ -77,34 +81,66 @@ Launching `main.nf` [focused_noether] - revision: eb930f0e69
 <h2>
 <span class="header-section-number">4.1</span> Simple run<a class="anchor" aria-label="anchor" href="#simple-run"><i class="fas fa-link"></i></a>
 </h2>
-<pre><code>nextflow run ProkGenomics --sample_name '1-77321' -profile conda</code></pre>
-<p><strong>Parameters you can use:</strong></p>
-<p><code>--sample_path ./rawdata/</code><br>
-The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for <a href="getting-started.html">setting up the working folder</a>. if you have your reads somewhere else you should change this parameter to that path.</p>
-<p><code>--sample_name 1-77321</code>
-The sample name is the prefix of your samples files. it doesn’t have a default because I don’t know your sample names.</p>
-<p><code>--assembly_type short</code>
-This parameter can be short long or hybrid. The default is ‘short’. if you have short reads you don’t have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads.</p>
-<p><code>--longreads  ./rawdata/longreads/</code>
-Path to the long reads.</p>
-<p><code>--threads 16</code>
-Number of threats to use. More threats faster your processing. Make sure you know what is available for you.</p>
-<p><code>--outdir 1-77321</code>
-The results will be in a folder in the working directory with the same sample name and _results ex. 1-77321_results.</p>
-<p><code>--assembly</code>
-if you provide a path to an assembly from the reads, the assembly steps will be skipped.</p>
-<p><code>--reference reference/ReferenceGenome.fasta</code>
-If you have a reference genome put the path here. This will activate all the comparative genomics steps.</p>
-<p><code>--adapter_file TruSeq3-PE.fa</code>
-To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are “TruSeq2-SE.fa”, “TruSeq2-PE.fa”, “TruSeq3-PE.fa”. The default is “TruSeq3-PE.fa”.</p>
-<p><code>--genes_interest GenesBD/*fasta</code>
-Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format.</p>
+<pre><code>#remember to activate the conda env if you are using one, and if you haven't activated it yet
+conda activate nextflow
 
+#run the pipeline
+nextflow run ProkGenomics --sample_name '1-77321' -profile conda
+</code></pre>
+<p><strong>Parameters you can use:</strong></p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="44%">
+<col width="55%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Command</th>
+<th align="left">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>--sample_path ./rawdata/</code></td>
+<td align="left">The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for <a href="getting-started.html">setting up the working folder</a>. if you have your reads somewhere else you should change this parameter to that path.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>--sample_name 1-77321</code></td>
+<td align="left">The sample name is the prefix of your samples files. it doesn’t have a default because I don’t know your sample names.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>--assembly_type short</code></td>
+<td align="left">This parameter can be short long or hybrid. The default is ‘short’. if you have short reads you don’t have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>--longreads  ./rawdata/longreads/</code></td>
+<td align="left">Path to the long reads.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>--threads 16</code></td>
+<td align="left">Number of threats to use. More threats faster your processing. Make sure you know what is available for you.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>--outdir 1-77321</code></td>
+<td align="left">The results will be in a folder in the working directory with the same sample name and _results ex. 1-77321_results.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>--reference reference/ReferenceGenome.fasta</code></td>
+<td align="left">If you have a reference genome put the path here. This will activate all the comparative genomics steps.</td>
+</tr>
+<tr class="even">
+<td align="left"><code>--adapter_file TruSeq3-PE.fa</code></td>
+<td align="left">To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are <code>TruSeq2-SE.fa</code>, <code>TruSeq2-PE.fa</code>, <code>TruSeq3-PE.fa</code>. The default is <code>TruSeq3-PE.fa</code>.</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>--genes_interest GenesBD/*fasta</code></td>
+<td align="left">Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format.</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="getting-started.html"><span class="header-section-number">3</span> Getting Started</a></div>
-<div class="next"><a href="understand-outputs.html"><span class="header-section-number">5</span> Understand Outputs</a></div>
+<div class="next"><a href="understand-outputs-in-development.html"><span class="header-section-number">5</span> Understand Outputs (in development)</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -127,7 +163,7 @@ Path to a folder that contains all genes of interest. The correct formating is a
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Assembly, Annotation, and Comparative Genomics for Prokaryotes</strong>" was written by Laura Perlaza-Jiménez (PhD). It was last built on Compiled: February 12, 2024.</p>
+    <p>"<strong>Assembly, Annotation, and Comparative Genomics for Prokaryotes</strong>" was written by Laura Perlaza-Jiménez (PhD). It was last built on Compiled: February 21, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

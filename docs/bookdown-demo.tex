@@ -87,7 +87,7 @@
 
 \title{Assembly, Annotation, and Comparative Genomics for Prokaryotes}
 \author{Laura Perlaza-Jiménez (PhD)}
-\date{Compiled: February 12, 2024}
+\date{Compiled: February 21, 2024}
 
 \begin{document}
 \maketitle
@@ -128,7 +128,7 @@ This \href{https://www.nextflow.io/}{nextflow} pipeline allows you to run severa
 \item
   Genes Annotation
 \item
-  Comparative genomics (when reference provided)
+  Comparative genomics (when genome reference provided)
 
   \begin{itemize}
   \tightlist
@@ -156,16 +156,17 @@ Before you get started with the pipeline, make sure you have installed nextflow.
 If you are using a \textbf{cluster} there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use \texttt{tab} after the word \texttt{nextflow} to see if you have different versions available. Ideally use the most recent version.
 
 \begin{verbatim}
+# if you are in a cluster
 module add nextflow
 \end{verbatim}
 
-If you can have \href{https://conda.io/projects/conda/en/latest/user-guide/getting-started.html}{conda} installed in your system (either in your computer or your server), you could create a conda environment and install nextflow following the next commands
+If you can have \href{https://conda.io/projects/conda/en/latest/user-guide/getting-started.html}{conda} installed in your system (either in your \textbf{computer} or your \textbf{server}), you could create a conda environment and install nextflow following the next commands
 
 \begin{verbatim}
-
+# if you can create conda env, this could work for a cluster, server or your own computer. 
 conda create -n nextflow
 conda activate nextflow
-conda install -c bioconda nextflow
+conda install -c bioconda nextflow=21.10.6
 
 \end{verbatim}
 
@@ -246,6 +247,10 @@ Remember to put the \href{getting-started.}{program in your \$PATH} if you haven
 If you added the program to your \texttt{\$PATH} successfully you should be able to run
 
 \begin{verbatim}
+#remember to activate the conda env if you are using one
+conda activate nextflow
+
+#run the pipeline
 nextflow run ProkGenomics
 \end{verbatim}
 
@@ -262,46 +267,144 @@ If you don't see a version of that go to \href{troubleshooting.html}{troubleshoo
 \section{Simple run}\label{simple-run}}
 
 \begin{verbatim}
+#remember to activate the conda env if you are using one, and if you haven't activated it yet
+conda activate nextflow
+
+#run the pipeline
 nextflow run ProkGenomics --sample_name '1-77321' -profile conda
 \end{verbatim}
 
 \textbf{Parameters you can use:}
 
-\texttt{-\/-sample\_path\ ./rawdata/}\strut \\
-The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for \href{getting-started.html}{setting up the working folder}. if you have your reads somewhere else you should change this parameter to that path.
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4444}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5556}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Command
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{-\/-sample\_path\ ./rawdata/} & The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for \href{getting-started.html}{setting up the working folder}. if you have your reads somewhere else you should change this parameter to that path. \\
+\texttt{-\/-sample\_name\ 1-77321} & The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names. \\
+\texttt{-\/-assembly\_type\ short} & This parameter can be short long or hybrid. The default is `short'. if you have short reads you don't have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads. \\
+\texttt{-\/-longreads\ \ ./rawdata/longreads/} & Path to the long reads. \\
+\texttt{-\/-threads\ 16} & Number of threats to use. More threats faster your processing. Make sure you know what is available for you. \\
+\texttt{-\/-outdir\ 1-77321} & The results will be in a folder in the working directory with the same sample name and \_results ex. 1-77321\_results. \\
+\texttt{-\/-reference\ reference/ReferenceGenome.fasta} & If you have a reference genome put the path here. This will activate all the comparative genomics steps. \\
+\texttt{-\/-adapter\_file\ TruSeq3-PE.fa} & To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are \texttt{TruSeq2-SE.fa}, \texttt{TruSeq2-PE.fa}, \texttt{TruSeq3-PE.fa}. The default is \texttt{TruSeq3-PE.fa}. \\
+\texttt{-\/-genes\_interest\ GenesBD/*fasta} & Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format. \\
+\end{longtable}
 
-\texttt{-\/-sample\_name\ 1-77321}
-The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names.
+\hypertarget{understand-outputs-in-development}{%
+\chapter{Understand Outputs (in development)}\label{understand-outputs-in-development}}
 
-\texttt{-\/-assembly\_type\ short}
-This parameter can be short long or hybrid. The default is `short'. if you have short reads you don't have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads.
+This pipeline produce several different outputs. The main results are stored in a folder names main\_results
 
-\texttt{-\/-longreads\ \ ./rawdata/longreads/}
-Path to the long reads.
+\hypertarget{outputs}{%
+\section{OUTPUTS}\label{outputs}}
 
-\texttt{-\/-threads\ 16}
-Number of threats to use. More threats faster your processing. Make sure you know what is available for you.
+Folder structure
 
-\texttt{-\/-outdir\ 1-77321}
-The results will be in a folder in the working directory with the same sample name and \_results ex. 1-77321\_results.
+\begin{verbatim}
+1-77321_results
+├── fastqc
+│   ├── 1-77321-LFA6246_L2_1_fastqc.html
+│   ├── 1-77321-LFA6246_L2_1_fastqc.zip
+│   ├── 1-77321-LFA6246_L2_2_fastqc.html
+│   ├── 1-77321-LFA6246_L2_2_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.zip
+│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.html
+│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.zip
+│   └── software_details.txt
+├── trimmomatic
+│   ├── 1-77321-LFA6246_L2.R1.trim.fastq
+│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim.fastq
+│   ├── 1-77321-LFA6246_L2.R2.trim.fastq
+│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim.fastq
+│   └── software_details.txt
+└── unicycler
+    ├── 1-77321-LFA6246_L2
+    │   ├── 001_spades_graph_k027.gfa
+    │   ├── 001_spades_graph_k053.gfa
+    │   ├── 001_spades_graph_k071.gfa
+    │   ├── 001_spades_graph_k087.gfa
+    │   ├── 001_spades_graph_k099.gfa
+    │   ├── 001_spades_graph_k111.gfa
+    │   ├── 001_spades_graph_k119.gfa
+    │   ├── 001_spades_graph_k127.gfa
+    │   ├── 002_depth_filter.gfa
+    │   ├── 003_overlaps_removed.gfa
+    │   ├── 004_bridges_applied.gfa
+    │   ├── 005_final_clean.gfa
+    │   ├── assembly.fasta <<<<< Complete de novo assembly
+    │   ├── assembly.gfa
+    │   └── unicycler.log
+    └── software_details.txt
+├── checkm
+│   ├── 1-77321-LFA6246_L2.tsv <<<<< QC de novo assembly
+│   └── software_details.txt
+├── checkv 
+│   ├── 1-77321-LFA6246_L2
+│   │   ├── complete_genomes.tsv
+│   │   ├── completeness.tsv
+│   │   ├── contamination.tsv
+│   │   ├── proviruses.fna
+│   │   ├── quality_summary.tsv <<<<< Phages or Provirus detected
+│   │   └── viruses.fna
+│   └── software_details.txt
+├── prokka
+│   ├── 1-77321-LFA6246_L2_annotation_output
+│   │   ├── 1-77321-LFA6246_L2.err
+│   │   ├── 1-77321-LFA6246_L2.faa
+│   │   ├── 1-77321-LFA6246_L2.ffn
+│   │   ├── 1-77321-LFA6246_L2.fna
+│   │   ├── 1-77321-LFA6246_L2.fsa
+│   │   ├── 1-77321-LFA6246_L2.gbk <<<<< Gene Annotation
+│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Gene Annotation
+│   │   ├── 1-77321-LFA6246_L2.log
+│   │   ├── 1-77321-LFA6246_L2.sqn
+│   │   ├── 1-77321-LFA6246_L2.tbl
+│   │   ├── 1-77321-LFA6246_L2.tsv
+│   │   └── 1-77321-LFA6246_L2.txt
+│   └── software_details.txt
+├── pharokka
+│   ├── 1-77321-LFA6246_L2_annotation_output
+│   │   ├── 1-77321-LFA6246_L2.err
+│   │   ├── 1-77321-LFA6246_L2.faa
+│   │   ├── 1-77321-LFA6246_L2.ffn
+│   │   ├── 1-77321-LFA6246_L2.fna
+│   │   ├── 1-77321-LFA6246_L2.fsa
+│   │   ├── 1-77321-LFA6246_L2.gbk
+│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Phages or Provirus annotation
+│   │   ├── 1-77321-LFA6246_L2.log
+│   │   ├── 1-77321-LFA6246_L2.sqn
+│   │   ├── 1-77321-LFA6246_L2.tbl
+│   │   ├── 1-77321-LFA6246_L2.tsv
+│   │   └── 1-77321-LFA6246_L2.txt
+│   └── software_details.txt
 
-\texttt{-\/-assembly}
-if you provide a path to an assembly from the reads, the assembly steps will be skipped.
+  
+\end{verbatim}
 
-\texttt{-\/-reference\ reference/ReferenceGenome.fasta}
-If you have a reference genome put the path here. This will activate all the comparative genomics steps.
-
-\texttt{-\/-adapter\_file\ TruSeq3-PE.fa}
-To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are ``TruSeq2-SE.fa'', ``TruSeq2-PE.fa'', ``TruSeq3-PE.fa''. The default is ``TruSeq3-PE.fa''.
-
-\texttt{-\/-genes\_interest\ GenesBD/*fasta}
-Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format.
-
-\hypertarget{understand-outputs}{%
-\chapter{Understand Outputs}\label{understand-outputs}}
-
-(still in development)
-\#\# OUTPUTS
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+File & Description \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+& \\
+\end{longtable}
 
 Folder with each analysis will be generated.
 

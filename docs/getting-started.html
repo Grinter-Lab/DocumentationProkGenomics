@@ -47,7 +47,7 @@
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="active" href="getting-started.html"><span class="header-section-number">3</span> Getting Started</a></li>
 <li><a class="" href="run-pipeline.html"><span class="header-section-number">4</span> Run Pipeline</a></li>
-<li><a class="" href="understand-outputs.html"><span class="header-section-number">5</span> Understand Outputs</a></li>
+<li><a class="" href="understand-outputs-in-development.html"><span class="header-section-number">5</span> Understand Outputs (in development)</a></li>
 <li><a class="" href="write-methods.html"><span class="header-section-number">6</span> Write Methods</a></li>
 <li><a class="" href="troubleshooting.html"><span class="header-section-number">7</span> Troubleshooting</a></li>
 <li><a class="" href="resources.html"><span class="header-section-number">8</span> Resources</a></li>
@@ -70,12 +70,13 @@
 </h2>
 <p>Before you get started with the pipeline, make sure you have installed nextflow.</p>
 <p>If you are using a <strong>cluster</strong> there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>nextflow</code> to see if you have different versions available. Ideally use the most recent version.</p>
-<pre><code>module add nextflow</code></pre>
-<p>If you can have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your computer or your server), you could create a conda environment and install nextflow following the next commands</p>
-<pre><code>
+<pre><code># if you are in a cluster
+module add nextflow</code></pre>
+<p>If you can have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your <strong>computer</strong> or your <strong>server</strong>), you could create a conda environment and install nextflow following the next commands</p>
+<pre><code># if you can create conda env, this could work for a cluster, server or your own computer. 
 conda create -n nextflow
 conda activate nextflow
-conda install -c bioconda nextflow
+conda install -c bioconda nextflow=21.10.6
 
 </code></pre>
 <p>Use <code>conda activate nextflow</code> every time you want to use nextflow</p>
@@ -160,7 +161,7 @@ scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Assembly, Annotation, and Comparative Genomics for Prokaryotes</strong>" was written by Laura Perlaza-Jiménez (PhD). It was last built on Compiled: February 12, 2024.</p>
+    <p>"<strong>Assembly, Annotation, and Comparative Genomics for Prokaryotes</strong>" was written by Laura Perlaza-Jiménez (PhD). It was last built on Compiled: February 21, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
