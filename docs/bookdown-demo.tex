@@ -87,7 +87,7 @@
 
 \title{Assembly, Annotation, and Comparative Genomics for Prokaryotes}
 \author{Laura Perlaza-Jiménez (PhD)}
-\date{Compiled: February 21, 2024}
+\date{Compiled: February 23, 2024}
 
 \begin{document}
 \maketitle
@@ -251,7 +251,7 @@ If you added the program to your \texttt{\$PATH} successfully you should be able
 conda activate nextflow
 
 #run the pipeline
-nextflow run ProkGenomics
+ProkGenomics
 \end{verbatim}
 
 If it starts correctly, you will see something like
@@ -271,7 +271,7 @@ If you don't see a version of that go to \href{troubleshooting.html}{troubleshoo
 conda activate nextflow
 
 #run the pipeline
-nextflow run ProkGenomics --sample_name '1-77321' -profile conda
+ProkGenomics --sample_name '1-77321' -profile conda
 \end{verbatim}
 
 \textbf{Parameters you can use:}
