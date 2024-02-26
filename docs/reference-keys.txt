@@ -11,6 +11,7 @@ simple-run
 understand-outputs-in-development
 outputs
 write-methods
+methods
 troubleshooting
 gitgithub.com-permission-denied
 resources

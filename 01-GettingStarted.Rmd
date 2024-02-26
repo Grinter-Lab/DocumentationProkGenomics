@@ -27,7 +27,7 @@ This [nextflow](https://www.nextflow.io/) pipeline allows you to run several pro
 
 Before you get started with the pipeline, make sure you have installed nextflow. 
 
-If you are using a **cluster** there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use `tab` after the word `nextflow` to see if you have different versions available. Ideally use the most recent version.
+If you are using a **cluster** there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use `tab` after the word `nextflow` to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested).
 
 ```
 # if you are in a cluster
@@ -57,7 +57,11 @@ Alternatively, you could install nextflow using the [nextflow installation instr
 Run the following command
 
 ```
+# when private
 git clone git@github.com:Grinter-Lab/ProkGenomics.git
+
+# when public
+git clone https://github.com/Grinter-Lab/ProkGenomics.git
 
 ```
 
@@ -80,10 +84,12 @@ To be able to run the program from any location without using the complete path,
 # move to the program folder
 cd ProkGenomics/
 
+# print your working directory
 pwd 
-# This will print your location
-/path/to/dir/program/
 
+# This will print your location something like: /path/to/dir/program/
+
+# export the path of the folder into your PATH
 export PATH="$PATH:/path/to/dir/program/"
 ```
 

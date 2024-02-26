@@ -87,7 +87,7 @@
 
 \title{Assembly, Annotation, and Comparative Genomics for Prokaryotes}
 \author{Laura Perlaza-Jiménez (PhD)}
-\date{Compiled: February 24, 2024}
+\date{Compiled: February 26, 2024}
 
 \begin{document}
 \maketitle
@@ -153,7 +153,7 @@ This \href{https://www.nextflow.io/}{nextflow} pipeline allows you to run severa
 
 Before you get started with the pipeline, make sure you have installed nextflow.
 
-If you are using a \textbf{cluster} there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use \texttt{tab} after the word \texttt{nextflow} to see if you have different versions available. Ideally use the most recent version.
+If you are using a \textbf{cluster} there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use \texttt{tab} after the word \texttt{nextflow} to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested).
 
 \begin{verbatim}
 # if you are in a cluster
@@ -180,7 +180,11 @@ Alternatively, you could install nextflow using the \href{https://www.nextflow.i
 Run the following command
 
 \begin{verbatim}
+# when private
 git clone git@github.com:Grinter-Lab/ProkGenomics.git
+
+# when public
+git clone https://github.com/Grinter-Lab/ProkGenomics.git
 \end{verbatim}
 
 If you have issues consulte the \href{troubleshooting.html}{troubleshoot section} for help
@@ -202,10 +206,12 @@ To be able to run the program from any location without using the complete path,
 # move to the program folder
 cd ProkGenomics/
 
+# print your working directory
 pwd 
-# This will print your location
-/path/to/dir/program/
 
+# This will print your location something like: /path/to/dir/program/
+
+# export the path of the folder into your PATH
 export PATH="$PATH:/path/to/dir/program/"
 \end{verbatim}
 
@@ -435,6 +441,19 @@ Each assembly has two folders one for the chromosome and one for the plasmid. Ex
 \chapter{Write Methods}\label{write-methods}}
 
 Still in development
+
+\hypertarget{methods}{%
+\subsection{\texorpdfstring{\textbf{Methods}}{Methods}}\label{methods}}
+
+\begin{verbatim}
+{r results='asis'}
+cat()
+
+cat("|Tool|version|Description|\n")
+cat("| :---|:---- |:---|\n")
+cat( "|FastQC|",params$fastqc_version,"|Sequence quality controls|\n")
+cat( "|Trimmomatic|",params$fastqc_version,"|Sequence quality controls|\n")
+\end{verbatim}
 
 \hypertarget{troubleshooting}{%
 \chapter{Troubleshooting}\label{troubleshooting}}
