@@ -8,10 +8,9 @@ set-up-your-working-directory
 how-to-transfer-raw-data-to-clusterserver
 run-pipeline
 simple-run
-understand-outputs-in-development
-outputs
+understand-outputs
+additional-outputs-description
 write-methods
-methods
 troubleshooting
 gitgithub.com-permission-denied
 resources

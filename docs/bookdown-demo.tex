@@ -114,21 +114,27 @@ This \href{https://www.nextflow.io/}{nextflow} pipeline allows you to run severa
 \begin{itemize}
 \tightlist
 \item
-  Quality control of reads (short, long, or both)
+  \textbf{Assembly, Annotation and Classification}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Quality control of reads (short, long, or both)
+  \item
+    Cleaning reads
+  \item
+    De-novo Assembly (short, long or hybrid)
+  \item
+    Quality Control of the assembly and detection of contamination
+  \item
+    Identification of the species in the sample
+  \item
+    Identification of plasmids, phages and prophages
+  \item
+    Genes Annotation
+  \end{itemize}
 \item
-  Cleaning reads
-\item
-  De-novo Assembly (short, long or hybrid)
-\item
-  Quality Control of the assembly and detection of contamination
-\item
-  Identification of the species in the sample
-\item
-  Identification of plasmids, phages and prophages
-\item
-  Genes Annotation
-\item
-  Comparative genomics (when genome reference provided)
+  \textbf{Comparative genomics (when genome reference provided)}
 
   \begin{itemize}
   \tightlist
@@ -142,7 +148,17 @@ This \href{https://www.nextflow.io/}{nextflow} pipeline allows you to run severa
     Identification of rearrangements and larger deletions
   \end{itemize}
 \item
-  Characterization of genes of interest (when genes sequences provided)
+  \textbf{Characterization of genes of interest (when genes sequences provided)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Alignments to genes of interest
+  \item
+    Summary table to identy presence, absence and truncated genes
+  \item
+    Generation peptides sequences from the denovo assembly
+  \end{itemize}
 \end{itemize}
 
 \hypertarget{getting-started}{%
@@ -306,13 +322,13 @@ Description
 \texttt{-\/-genes\_interest\ GenesBD/*fasta} & Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format. \\
 \end{longtable}
 
-\hypertarget{understand-outputs-in-development}{%
-\chapter{Understand Outputs (in development)}\label{understand-outputs-in-development}}
+\hypertarget{understand-outputs}{%
+\chapter{Understand Outputs}\label{understand-outputs}}
 
-This pipeline produce several different outputs. The main results are stored in a folder names main\_results
+This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named \texttt{\textless{}sample\_name\textgreater{}ProkGenomics\_report.html}
 
-\hypertarget{outputs}{%
-\section{OUTPUTS}\label{outputs}}
+\hypertarget{additional-outputs-description}{%
+\section{Additional outputs description}\label{additional-outputs-description}}
 
 Folder structure
 
@@ -402,18 +418,6 @@ Folder structure
   
 \end{verbatim}
 
-\begin{longtable}[]{@{}ll@{}}
-\toprule\noalign{}
-File & Description \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-& \\
-\end{longtable}
-
-Folder with each analysis will be generated.
-
 folder \textbf{test\_output}:
 This folder contains all the intermedia files used for the program. These files will help you to check in detail where your alignment come from. In case you are puzzle by your final table. Each folder contains:
 
@@ -440,20 +444,7 @@ Each assembly has two folders one for the chromosome and one for the plasmid. Ex
 \hypertarget{write-methods}{%
 \chapter{Write Methods}\label{write-methods}}
 
-Still in development
-
-\hypertarget{methods}{%
-\subsection{\texorpdfstring{\textbf{Methods}}{Methods}}\label{methods}}
-
-\begin{verbatim}
-{r results='asis'}
-cat()
-
-cat("|Tool|version|Description|\n")
-cat("| :---|:---- |:---|\n")
-cat( "|FastQC|",params$fastqc_version,"|Sequence quality controls|\n")
-cat( "|Trimmomatic|",params$fastqc_version,"|Sequence quality controls|\n")
-\end{verbatim}
+Workflow of pipeline
 
 \hypertarget{troubleshooting}{%
 \chapter{Troubleshooting}\label{troubleshooting}}

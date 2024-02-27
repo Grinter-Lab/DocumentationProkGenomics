@@ -1,18 +1,3 @@
 # Write Methods
 
-Still in development
-
-
-
-### **Methods**
-
-```
-{r results='asis'}
-cat()
-
-cat("|Tool|version|Description|\n")
-cat("| :---|:---- |:---|\n")
-cat( "|FastQC|",params$fastqc_version,"|Sequence quality controls|\n")
-cat( "|Trimmomatic|",params$fastqc_version,"|Sequence quality controls|\n")
-
-```
+Workflow of pipeline

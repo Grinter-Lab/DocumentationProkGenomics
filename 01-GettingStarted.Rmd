@@ -5,19 +5,23 @@ This [nextflow](https://www.nextflow.io/) pipeline allows you to run several pro
 
 ## Overview of the pipeline
 
-* Quality control of reads (short, long, or both)
-* Cleaning reads
-* De-novo Assembly (short, long or hybrid)
-*	Quality Control of the assembly and detection of contamination
-*	Identification of the species in the sample
-*	Identification of plasmids, phages and prophages 
-*	Genes Annotation
-*	Comparative genomics (when genome reference provided) 
+* **Assembly, Annotation and Classification**
+  * Quality control of reads (short, long, or both)
+  * Cleaning reads
+  * De-novo Assembly (short, long or hybrid)
+  *	Quality Control of the assembly and detection of contamination
+  *	Identification of the species in the sample
+  *	Identification of plasmids, phages and prophages 
+  *	Genes Annotation
+* **Comparative genomics (when genome reference provided)** 
     * Coverage of reference genome
     * Identification of core genome
     * Identification of Single Nucleotide Variants (SNV)
     * Identification of rearrangements and larger deletions
-* Characterization of genes of interest (when genes sequences provided)
+* **Characterization of genes of interest (when genes sequences provided)**
+    * Alignments to genes of interest
+    * Summary table to identy presence, absence and truncated genes
+    * Generation peptides sequences from the denovo assembly
 
 
 

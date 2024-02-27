@@ -39,8 +39,8 @@ ProkGenomics --sample_name '1-77321' -profile conda
 
 |Command|Description|
 | :---|:---- |
-|`--sample_path ./rawdata/`|  The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for [setting up the working folder](getting-started.html). if you have your reads somewhere else you should change this parameter to that path. |
-|`--sample_name 1-77321`|The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names. |
+|`--sample_path ./rawdata/`|  The default path for the reads is the folder rawdata in the working directory (please follow the instructions for [setting up the working folder](getting-started.html)). if you have your reads somewhere else you should set this parameter to that path. |
+|`--sample_name 1-77321`|The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names. Please don't use sample names with spaces in them. Best approach is to use the name of the file as it comes from the sequencing facility|
 |`--assembly_type short`|This parameter can be short long or hybrid. The default is 'short'. if you have short reads you don't have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads. | 
 |`--longreads  ./rawdata/longreads/`|Path to the long reads. |  
 |`--threads 16`|Number of threats to use. More threats faster your processing. Make sure you know what is available for you.|

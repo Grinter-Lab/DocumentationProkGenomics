@@ -1,8 +1,10 @@
-# Understand Outputs (in development)
+# Understand Outputs 
 
-This pipeline produce several different outputs. The main results are stored in a folder names main_results
+This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named `<sample_name>ProkGenomics_report.html`
 
-## OUTPUTS
+
+
+## Additional outputs description
 
 Folder structure
 ```
@@ -92,11 +94,7 @@ Folder structure
 
 ```
 
-|File|Description|Columns|
-| :---|:---- |
-| | |
 
-Folder with each analysis will be generated.
 
 
 

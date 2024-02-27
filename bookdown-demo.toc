@@ -8,10 +8,9 @@
 \contentsline {section}{\numberline {3.4}How to transfer raw data to cluster/server}{10}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Run Pipeline}{13}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Simple run}{13}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Understand Outputs (in development)}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}OUTPUTS}{15}{section.5.1}%
+\contentsline {chapter}{\numberline {5}Understand Outputs}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Additional outputs description}{15}{section.5.1}%
 \contentsline {chapter}{\numberline {6}Write Methods}{19}{chapter.6}%
-\contentsline {subsection}{\numberline {6.0.1}\textbf {Methods}}{19}{subsection.6.0.1}%
 \contentsline {chapter}{\numberline {7}Troubleshooting}{21}{chapter.7}%
 \contentsline {section}{\numberline {7.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{21}{section.7.1}%
 \contentsline {chapter}{\numberline {8}Resources}{23}{chapter.8}%
