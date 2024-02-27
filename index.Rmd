@@ -1,13 +1,15 @@
 --- 
-title: "Assembly, Annotation, and Comparative Genomics for Prokaryotes"
-author: "Laura Perlaza-Jiménez (PhD)"
+title: "ProkGenomics"
+author: "Laura Perlaza-Jiménez (Ph.D.)"
 date: 'Compiled: `r format(Sys.Date(), "%B %d, %Y")`'
 site: bookdown::bookdown_site
 #output: bookdown::gitbook
 documentclass: book
 github-repo: 
-description: "This is the documentation to run the nextflow pipeline for Prokaryotic assembly, annotation, characterization and comparative genomics."
+description: "This is the documentation to run ProkGenomics a compact nextflow pipeline for Prokaryotic assembly, annotation, characterization and comparative genomics."
 ---
+
+
 
 # START HERE
 

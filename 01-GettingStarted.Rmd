@@ -1,5 +1,6 @@
 # Introduction
 
+
 This [nextflow](https://www.nextflow.io/) pipeline allows you to run several programs using a one-line command. It wraps programs to assemble, annotate, taxonomically identify, genotypic characterize and perform simple comparative genomics on prokaryotic sequencing data. This pipeline is self-contained and is NOT meant to be run in modules (not independent parts of it). This with the intention of simplifying the user interaction and the user knowledge about the bioinformatics behind this processes. However, making yourself familiar with the programs behind the scenes helps you to make informed decisions. Please go to [resources](resources.html) to read more about what each program is doing.  
 
 ## Overview of the pipeline

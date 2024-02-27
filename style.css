@@ -27,7 +27,7 @@ pre code {
   padding: 1em;
   border: 1px solid black;
   border-radius: 5px;
-  background: rgb(31, 15, 135);
+  background: #018080;
 }
 .bluesquare > :first-child, .bluesquare > :nth-child(2) {
   margin-top: 0;
