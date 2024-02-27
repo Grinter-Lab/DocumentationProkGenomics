@@ -87,7 +87,7 @@
 
 \title{ProkGenomics}
 \author{Laura Perlaza-Jiménez (Ph.D.)}
-\date{Compiled: February 27, 2024}
+\date{Compiled: February 28, 2024}
 
 \begin{document}
 \maketitle
@@ -311,15 +311,16 @@ Description
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\texttt{-\/-sample\_path\ ./rawdata/} & The default path for the reads is the folder rawdata in the working directory. If you followed the instructions for \href{getting-started.html}{setting up the working folder}. if you have your reads somewhere else you should change this parameter to that path. \\
-\texttt{-\/-sample\_name\ 1-77321} & The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names. \\
+\texttt{-\/-sample\_path\ ./rawdata/} & The default path for the reads is the folder rawdata in the working directory (please follow the instructions for \href{getting-started.html}{setting up the working folder}). if you have your reads somewhere else you should set this parameter to that path. \\
+\texttt{-\/-sample\_name\ 1-77321} & The sample name is the prefix of your samples files. it doesn't have a default because I don't know your sample names. Please don't use sample names with spaces in them. Best approach is to use the name of the file as it comes from the sequencing facility \\
 \texttt{-\/-assembly\_type\ short} & This parameter can be short long or hybrid. The default is `short'. if you have short reads you don't have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads. \\
 \texttt{-\/-longreads\ \ ./rawdata/longreads/} & Path to the long reads. \\
 \texttt{-\/-threads\ 16} & Number of threats to use. More threats faster your processing. Make sure you know what is available for you. \\
 \texttt{-\/-outdir\ 1-77321} & The results will be in a folder in the working directory with the same sample name and \_results ex. 1-77321\_results. \\
 \texttt{-\/-reference\ reference/ReferenceGenome.fasta} & If you have a reference genome put the path here. This will activate all the comparative genomics steps. \\
 \texttt{-\/-adapter\_file\ TruSeq3-PE.fa} & To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are \texttt{TruSeq2-SE.fa}, \texttt{TruSeq2-PE.fa}, \texttt{TruSeq3-PE.fa}. The default is \texttt{TruSeq3-PE.fa}. \\
-\texttt{-\/-genes\_interest\ GenesBD/*fasta} & Path to a folder that contains all genes of interest. The correct formating is a genes per file in fasta format. \\
+\texttt{-\/-genes\_interest\ GenesBD/*fasta} & Path to a folder that contains all genes of interest. The correct formatting is a gene per file in fasta format. \\
+\texttt{-\/-assembly\ genome\_assembly.fasta} & If you already have an assembly you can set this parameter and the pipeline will skip all the steps of assembly \\
 \end{longtable}
 
 \hypertarget{understand-outputs}{%
