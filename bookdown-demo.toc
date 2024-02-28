@@ -8,17 +8,17 @@
 \contentsline {section}{\numberline {3.4}How to transfer raw data to cluster/server}{10}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Run Pipeline}{13}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Simple run}{13}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Understand Outputs}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Additional outputs description}{15}{section.5.1}%
-\contentsline {chapter}{\numberline {6}Write Methods}{19}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Troubleshooting}{21}{chapter.7}%
-\contentsline {section}{\numberline {7.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{21}{section.7.1}%
-\contentsline {chapter}{\numberline {8}Resources}{23}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Command Line Intro}{25}{chapter.9}%
-\contentsline {section}{\numberline {9.1}General syntax and conventions:}{25}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Programs:}{25}{subsection.9.1.1}%
-\contentsline {section}{\numberline {9.2}Basic commands:}{26}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Files system}{26}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Connect to the cluster}{29}{chapter.10}%
-\contentsline {subsection}{\numberline {10.0.1}Macs}{29}{subsection.10.0.1}%
-\contentsline {subsection}{\numberline {10.0.2}Windows}{29}{subsection.10.0.2}%
+\contentsline {chapter}{\numberline {5}Understand Outputs}{17}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Additional outputs description}{17}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Write Methods}{21}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Troubleshooting}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{23}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Resources}{25}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Command Line Intro}{27}{chapter.9}%
+\contentsline {section}{\numberline {9.1}General syntax and conventions:}{27}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Programs:}{27}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}Basic commands:}{28}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Files system}{28}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Connect to the cluster}{31}{chapter.10}%
+\contentsline {subsection}{\numberline {10.0.1}Macs}{31}{subsection.10.0.1}%
+\contentsline {subsection}{\numberline {10.0.2}Windows}{31}{subsection.10.0.2}%

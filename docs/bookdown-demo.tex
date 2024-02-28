@@ -317,7 +317,7 @@ Description
 \texttt{-\/-longreads\ \ ./rawdata/longreads/} & Path to the long reads. \\
 \texttt{-\/-threads\ 16} & Number of threats to use. More threats faster your processing. Make sure you know what is available for you. \\
 \texttt{-\/-outdir\ 1-77321} & The results will be in a folder in the working directory with the same sample name and \_results ex. 1-77321\_results. \\
-\texttt{-\/-reference\ reference/ReferenceGenome.fasta} & If you have a reference genome put the path here. This will activate all the comparative genomics steps. \\
+\texttt{-\/-reference\ reference/ReferenceGenome.fasta} & If you have a reference genome put the path here. This will activate all the comparative genomics steps. This file can be formatted as fasta or genbank. If you provide a genbank file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations). \\
 \texttt{-\/-adapter\_file\ TruSeq3-PE.fa} & To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are \texttt{TruSeq2-SE.fa}, \texttt{TruSeq2-PE.fa}, \texttt{TruSeq3-PE.fa}. The default is \texttt{TruSeq3-PE.fa}. \\
 \texttt{-\/-genes\_interest\ GenesBD/*fasta} & Path to a folder that contains all genes of interest. The correct formatting is a gene per file in fasta format. \\
 \texttt{-\/-assembly\ genome\_assembly.fasta} & If you already have an assembly you can set this parameter and the pipeline will skip all the steps of assembly \\
@@ -326,7 +326,7 @@ Description
 \hypertarget{understand-outputs}{%
 \chapter{Understand Outputs}\label{understand-outputs}}
 
-This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named \texttt{\textless{}sample\_name\textgreater{}ProkGenomics\_report.html}
+This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named \href{https://bioinformatics.erc.monash.edu/home/lper0012/ProkGenomics/1-77321-LFA6246_L2_ProkGenomics_report.html}{\texttt{\textless{}sample\_name\textgreater{}\_ProkGenomics\_report.html}} (click hyperlink to see)
 
 \hypertarget{additional-outputs-description}{%
 \section{Additional outputs description}\label{additional-outputs-description}}
@@ -334,29 +334,29 @@ This pipeline produce a folder per program run and several main outputs. The mai
 Folder structure
 
 \begin{verbatim}
-1-77321_results
+sample_name_results
 ├── fastqc
-│   ├── 1-77321-LFA6246_L2_1_fastqc.html
-│   ├── 1-77321-LFA6246_L2_1_fastqc.zip
-│   ├── 1-77321-LFA6246_L2_2_fastqc.html
-│   ├── 1-77321-LFA6246_L2_2_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.zip
+│   ├── sample_prefix_1_fastqc.html
+│   ├── sample_prefix_1_fastqc.zip
+│   ├── sample_prefix_2_fastqc.html
+│   ├── sample_prefix_2_fastqc.zip
+│   ├── sample_prefix.R1.trim_fastqc.html
+│   ├── sample_prefix.R1.trim_fastqc.zip
+│   ├── sample_prefix.R1.unpaired.trim_fastqc.html
+│   ├── sample_prefix.R1.unpaired.trim_fastqc.zip
+│   ├── sample_prefix.R2.trim_fastqc.html
+│   ├── sample_prefix.R2.trim_fastqc.zip
+│   ├── sample_prefix.R2.unpaired.trim_fastqc.html
+│   ├── sample_prefix.R2.unpaired.trim_fastqc.zip
 │   └── software_details.txt
 ├── trimmomatic
-│   ├── 1-77321-LFA6246_L2.R1.trim.fastq
-│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim.fastq
-│   ├── 1-77321-LFA6246_L2.R2.trim.fastq
-│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim.fastq
+│   ├── sample_prefix.R1.trim.fastq
+│   ├── sample_prefix.R1.unpaired.trim.fastq
+│   ├── sample_prefix.R2.trim.fastq
+│   ├── sample_prefix.R2.unpaired.trim.fastq
 │   └── software_details.txt
 └── unicycler
-    ├── 1-77321-LFA6246_L2
+    ├── sample_prefix
     │   ├── 001_spades_graph_k027.gfa
     │   ├── 001_spades_graph_k053.gfa
     │   ├── 001_spades_graph_k071.gfa
@@ -374,10 +374,10 @@ Folder structure
     │   └── unicycler.log
     └── software_details.txt
 ├── checkm
-│   ├── 1-77321-LFA6246_L2.tsv <<<<< QC de novo assembly
+│   ├── sample_prefix.tsv <<<<< QC de novo assembly
 │   └── software_details.txt
 ├── checkv 
-│   ├── 1-77321-LFA6246_L2
+│   ├── sample_prefix
 │   │   ├── complete_genomes.tsv
 │   │   ├── completeness.tsv
 │   │   ├── contamination.tsv
@@ -386,61 +386,38 @@ Folder structure
 │   │   └── viruses.fna
 │   └── software_details.txt
 ├── prokka
-│   ├── 1-77321-LFA6246_L2_annotation_output
-│   │   ├── 1-77321-LFA6246_L2.err
-│   │   ├── 1-77321-LFA6246_L2.faa
-│   │   ├── 1-77321-LFA6246_L2.ffn
-│   │   ├── 1-77321-LFA6246_L2.fna
-│   │   ├── 1-77321-LFA6246_L2.fsa
-│   │   ├── 1-77321-LFA6246_L2.gbk <<<<< Gene Annotation
-│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Gene Annotation
-│   │   ├── 1-77321-LFA6246_L2.log
-│   │   ├── 1-77321-LFA6246_L2.sqn
-│   │   ├── 1-77321-LFA6246_L2.tbl
-│   │   ├── 1-77321-LFA6246_L2.tsv
-│   │   └── 1-77321-LFA6246_L2.txt
+│   ├── sample_prefix_annotation_output
+│   │   ├── sample_prefix.err
+│   │   ├── sample_prefix.faa
+│   │   ├── sample_prefix.ffn
+│   │   ├── sample_prefix.fna
+│   │   ├── sample_prefix.fsa
+│   │   ├── sample_prefix.gbk <<<<< Gene Annotation
+│   │   ├── sample_prefix.gff <<<<< Gene Annotation
+│   │   ├── sample_prefix.log
+│   │   ├── sample_prefix.sqn
+│   │   ├── sample_prefix.tbl
+│   │   ├── sample_prefix.tsv
+│   │   └── sample_prefix.txt
 │   └── software_details.txt
 ├── pharokka
-│   ├── 1-77321-LFA6246_L2_annotation_output
-│   │   ├── 1-77321-LFA6246_L2.err
-│   │   ├── 1-77321-LFA6246_L2.faa
-│   │   ├── 1-77321-LFA6246_L2.ffn
-│   │   ├── 1-77321-LFA6246_L2.fna
-│   │   ├── 1-77321-LFA6246_L2.fsa
-│   │   ├── 1-77321-LFA6246_L2.gbk
-│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Phages or Provirus annotation
-│   │   ├── 1-77321-LFA6246_L2.log
-│   │   ├── 1-77321-LFA6246_L2.sqn
-│   │   ├── 1-77321-LFA6246_L2.tbl
-│   │   ├── 1-77321-LFA6246_L2.tsv
-│   │   └── 1-77321-LFA6246_L2.txt
+│   ├── sample_prefix_annotation_output
+│   │   ├── sample_prefix.err
+│   │   ├── sample_prefix.faa
+│   │   ├── sample_prefix.ffn
+│   │   ├── sample_prefix.fna
+│   │   ├── sample_prefix.fsa
+│   │   ├── sample_prefix.gbk
+│   │   ├── sample_prefix.gff <<<<< Phages or Provirus annotation
+│   │   ├── sample_prefix.log
+│   │   ├── sample_prefix.sqn
+│   │   ├── sample_prefix.tbl
+│   │   ├── sample_prefix.tsv
+│   │   └── sample_prefix.txt
 │   └── software_details.txt
 
   
 \end{verbatim}
-
-folder \textbf{test\_output}:
-This folder contains all the intermedia files used for the program. These files will help you to check in detail where your alignment come from. In case you are puzzle by your final table. Each folder contains:
-
-\textbf{GenomeName.chr.genes.faa}: all predicted genes in AA\\
-\textbf{GenomeName.chr.genes.fasta}: all predicted genes in nt\\
-\textbf{GenomeName.chr.genes.gff}: all predicted genes in gff format with the fasta file at the end\\
-\textbf{GenomeName.chromosome.GeneName.Blast.txt}: blast results of the gene against the genome\\
-\textbf{GenomeName.chromosome.GeneName.fasta.plusRef.fasta}: fasta of gene reference and gene in the genome
-
-folder \emph{test\_results}\\
-This folder contains all final results files and a folder with the predicted peptides that match with the genes of interest\\
-\textbf{GeneName.fasta.nt\_alignment.fasta}: The alignment of each gene of interest for all the genomes analysed\\
-\textbf{test.alignments.description.txt}: table with the descriptive information of the alignments, stop codons, gaps, insertions, SNPs, N.copies (numbers of copies)\\
-\textbf{Peptides} (folder): predicted peptides that match with the genes of interest
-
-Additional files when running any of the --Kleb, --Esch or --Ent options
-
-folder \textbf{test\_output}:\\
-Each assembly has two folders one for the chromosome and one for the plasmid. Examples here are about the chromosome, \emph{.plasmid\_} are for plasmids\\
-\textbf{GenomeName.chromosome\_contigslist.txt}:list of contigs in the assembly that are chromosomal\\
-\textbf{GenomeName.chromosome.fasta}: fasta file of chromosomal contigs\\
-\textbf{GenomeName.fsa\_nt.chromosomesummary.txt}: summary results from chromosome prediction from mlplasmid
 
 \hypertarget{write-methods}{%
 \chapter{Write Methods}\label{write-methods}}

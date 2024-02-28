@@ -1,6 +1,6 @@
 # Understand Outputs 
 
-This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named `<sample_name>ProkGenomics_report.html`
+This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named [`<sample_name>_ProkGenomics_report.html`](https://bioinformatics.erc.monash.edu/home/lper0012/ProkGenomics/1-77321-LFA6246_L2_ProkGenomics_report.html) (click hyperlink to see)
 
 
 
@@ -8,29 +8,29 @@ This pipeline produce a folder per program run and several main outputs. The mai
 
 Folder structure
 ```
-1-77321_results
+sample_name_results
 ├── fastqc
-│   ├── 1-77321-LFA6246_L2_1_fastqc.html
-│   ├── 1-77321-LFA6246_L2_1_fastqc.zip
-│   ├── 1-77321-LFA6246_L2_2_fastqc.html
-│   ├── 1-77321-LFA6246_L2_2_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R1.trim_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R2.trim_fastqc.zip
-│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.html
-│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim_fastqc.zip
+│   ├── sample_prefix_1_fastqc.html
+│   ├── sample_prefix_1_fastqc.zip
+│   ├── sample_prefix_2_fastqc.html
+│   ├── sample_prefix_2_fastqc.zip
+│   ├── sample_prefix.R1.trim_fastqc.html
+│   ├── sample_prefix.R1.trim_fastqc.zip
+│   ├── sample_prefix.R1.unpaired.trim_fastqc.html
+│   ├── sample_prefix.R1.unpaired.trim_fastqc.zip
+│   ├── sample_prefix.R2.trim_fastqc.html
+│   ├── sample_prefix.R2.trim_fastqc.zip
+│   ├── sample_prefix.R2.unpaired.trim_fastqc.html
+│   ├── sample_prefix.R2.unpaired.trim_fastqc.zip
 │   └── software_details.txt
 ├── trimmomatic
-│   ├── 1-77321-LFA6246_L2.R1.trim.fastq
-│   ├── 1-77321-LFA6246_L2.R1.unpaired.trim.fastq
-│   ├── 1-77321-LFA6246_L2.R2.trim.fastq
-│   ├── 1-77321-LFA6246_L2.R2.unpaired.trim.fastq
+│   ├── sample_prefix.R1.trim.fastq
+│   ├── sample_prefix.R1.unpaired.trim.fastq
+│   ├── sample_prefix.R2.trim.fastq
+│   ├── sample_prefix.R2.unpaired.trim.fastq
 │   └── software_details.txt
 └── unicycler
-    ├── 1-77321-LFA6246_L2
+    ├── sample_prefix
     │   ├── 001_spades_graph_k027.gfa
     │   ├── 001_spades_graph_k053.gfa
     │   ├── 001_spades_graph_k071.gfa
@@ -48,10 +48,10 @@ Folder structure
     │   └── unicycler.log
     └── software_details.txt
 ├── checkm
-│   ├── 1-77321-LFA6246_L2.tsv <<<<< QC de novo assembly
+│   ├── sample_prefix.tsv <<<<< QC de novo assembly
 │   └── software_details.txt
 ├── checkv 
-│   ├── 1-77321-LFA6246_L2
+│   ├── sample_prefix
 │   │   ├── complete_genomes.tsv
 │   │   ├── completeness.tsv
 │   │   ├── contamination.tsv
@@ -60,67 +60,37 @@ Folder structure
 │   │   └── viruses.fna
 │   └── software_details.txt
 ├── prokka
-│   ├── 1-77321-LFA6246_L2_annotation_output
-│   │   ├── 1-77321-LFA6246_L2.err
-│   │   ├── 1-77321-LFA6246_L2.faa
-│   │   ├── 1-77321-LFA6246_L2.ffn
-│   │   ├── 1-77321-LFA6246_L2.fna
-│   │   ├── 1-77321-LFA6246_L2.fsa
-│   │   ├── 1-77321-LFA6246_L2.gbk <<<<< Gene Annotation
-│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Gene Annotation
-│   │   ├── 1-77321-LFA6246_L2.log
-│   │   ├── 1-77321-LFA6246_L2.sqn
-│   │   ├── 1-77321-LFA6246_L2.tbl
-│   │   ├── 1-77321-LFA6246_L2.tsv
-│   │   └── 1-77321-LFA6246_L2.txt
+│   ├── sample_prefix_annotation_output
+│   │   ├── sample_prefix.err
+│   │   ├── sample_prefix.faa
+│   │   ├── sample_prefix.ffn
+│   │   ├── sample_prefix.fna
+│   │   ├── sample_prefix.fsa
+│   │   ├── sample_prefix.gbk <<<<< Gene Annotation
+│   │   ├── sample_prefix.gff <<<<< Gene Annotation
+│   │   ├── sample_prefix.log
+│   │   ├── sample_prefix.sqn
+│   │   ├── sample_prefix.tbl
+│   │   ├── sample_prefix.tsv
+│   │   └── sample_prefix.txt
 │   └── software_details.txt
 ├── pharokka
-│   ├── 1-77321-LFA6246_L2_annotation_output
-│   │   ├── 1-77321-LFA6246_L2.err
-│   │   ├── 1-77321-LFA6246_L2.faa
-│   │   ├── 1-77321-LFA6246_L2.ffn
-│   │   ├── 1-77321-LFA6246_L2.fna
-│   │   ├── 1-77321-LFA6246_L2.fsa
-│   │   ├── 1-77321-LFA6246_L2.gbk
-│   │   ├── 1-77321-LFA6246_L2.gff <<<<< Phages or Provirus annotation
-│   │   ├── 1-77321-LFA6246_L2.log
-│   │   ├── 1-77321-LFA6246_L2.sqn
-│   │   ├── 1-77321-LFA6246_L2.tbl
-│   │   ├── 1-77321-LFA6246_L2.tsv
-│   │   └── 1-77321-LFA6246_L2.txt
+│   ├── sample_prefix_annotation_output
+│   │   ├── sample_prefix.err
+│   │   ├── sample_prefix.faa
+│   │   ├── sample_prefix.ffn
+│   │   ├── sample_prefix.fna
+│   │   ├── sample_prefix.fsa
+│   │   ├── sample_prefix.gbk
+│   │   ├── sample_prefix.gff <<<<< Phages or Provirus annotation
+│   │   ├── sample_prefix.log
+│   │   ├── sample_prefix.sqn
+│   │   ├── sample_prefix.tbl
+│   │   ├── sample_prefix.tsv
+│   │   └── sample_prefix.txt
 │   └── software_details.txt
 
   
 
 ```
-
-
-
-
-
-
-
-folder **test_output**:
-	This folder contains all the intermedia files used for the program. These files will help you to check in detail where your alignment come from. In case you are puzzle by your final table. Each folder contains:
-
-  **GenomeName.chr.genes.faa**: all predicted genes in AA  
-  **GenomeName.chr.genes.fasta**: all predicted genes in nt  
-  **GenomeName.chr.genes.gff**: all predicted genes in gff format with the fasta file at the end  
-  **GenomeName.chromosome.GeneName.Blast.txt**: blast results of the gene against the genome  
-  **GenomeName.chromosome.GeneName.fasta.plusRef.fasta**: fasta of gene reference and gene in the genome  
-
-folder *test_results*  
-	This folder contains all final results files and a folder with the predicted peptides that match with the genes of interest  
-  **GeneName.fasta.nt_alignment.fasta**: The alignment of each gene of interest for all the genomes analysed  
-  **test.alignments.description.txt**: table with the descriptive information of the alignments, stop codons, gaps, insertions, SNPs, N.copies (numbers of copies)  
-  **Peptides** (folder): predicted peptides that match with the genes of interest  
-
-Additional files when running any of the --Kleb, --Esch or --Ent options
-
-folder **test_output**:  
-	Each assembly has two folders one for the chromosome and one for the plasmid. Examples here are about the chromosome, *.plasmid_* are for plasmids   
-   **GenomeName.chromosome_contigslist.txt**:list of contigs in the assembly that are chromosomal  
-   **GenomeName.chromosome.fasta**: fasta file of chromosomal contigs  
-   **GenomeName.fsa_nt.chromosomesummary.txt**: summary results from chromosome prediction from mlplasmid  
-	
 

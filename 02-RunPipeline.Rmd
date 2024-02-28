@@ -45,7 +45,7 @@ ProkGenomics --sample_name '1-77321' -profile conda
 |`--longreads  ./rawdata/longreads/`|Path to the long reads. |  
 |`--threads 16`|Number of threats to use. More threats faster your processing. Make sure you know what is available for you.|
 |`--outdir 1-77321`|The results will be in a folder in the working directory with the same sample name and _results ex. 1-77321_results.| |`--assembly`|if you provide a path to an assembly from the reads, the assembly steps will be skipped.|
-|`--reference reference/ReferenceGenome.fasta`|If you have a reference genome put the path here. This will activate all the comparative genomics steps.|
+|`--reference reference/ReferenceGenome.fasta`|If you have a reference genome put the path here. This will activate all the comparative genomics steps. This file can be formatted as fasta or genbank. If you provide a genbank file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations).|
 |`--adapter_file TruSeq3-PE.fa`|To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are  `TruSeq2-SE.fa`, `TruSeq2-PE.fa`, `TruSeq3-PE.fa`. The default is `TruSeq3-PE.fa`.  |
 |`--genes_interest GenesBD/*fasta`|Path to a folder that contains all genes of interest. The correct formatting is a gene per file in fasta format. |
 |`--assembly genome_assembly.fasta`|If you already have an assembly you can set this parameter and the pipeline will skip all the steps of assembly|
