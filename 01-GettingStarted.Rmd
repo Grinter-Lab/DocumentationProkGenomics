@@ -39,7 +39,7 @@ If you are using a **cluster** there are high chances that nextflow is a module 
 module add nextflow
 ```
 
-If you can have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your **computer** or your **server**), you could create a conda environment and install nextflow following the next commands
+If you have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your **computer** or your **server**), you could create a conda environment and install nextflow following the next commands
 
 
 ```
@@ -55,6 +55,10 @@ Use `conda activate nextflow` every time you want to use nextflow
 
 
 Alternatively, you could install nextflow using the [nextflow installation instructions](https://www.nextflow.io/docs/latest/getstarted.html)
+
+## Other dependencies
+
+This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses conda, docker or singularity to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels. Therefore the best option for now is to run it with singularity. **Install singularity** in your machine following this [instructions](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview), make sure you are following the right instructions for your system ([Linux](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux), [Windows or Mac](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac))
 
 
 ## Download the nextflow pipeline

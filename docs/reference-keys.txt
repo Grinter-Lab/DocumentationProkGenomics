@@ -3,6 +3,7 @@ introduction
 overview-of-the-pipeline
 getting-started
 make-sure-you-have-nextflow-running
+other-dependencies
 download-the-nextflow-pipeline
 set-up-your-working-directory
 how-to-transfer-raw-data-to-clusterserver

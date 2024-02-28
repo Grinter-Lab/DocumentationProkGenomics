@@ -176,7 +176,7 @@ If you are using a \textbf{cluster} there are high chances that nextflow is a mo
 module add nextflow
 \end{verbatim}
 
-If you can have \href{https://conda.io/projects/conda/en/latest/user-guide/getting-started.html}{conda} installed in your system (either in your \textbf{computer} or your \textbf{server}), you could create a conda environment and install nextflow following the next commands
+If you have \href{https://conda.io/projects/conda/en/latest/user-guide/getting-started.html}{conda} installed in your system (either in your \textbf{computer} or your \textbf{server}), you could create a conda environment and install nextflow following the next commands
 
 \begin{verbatim}
 # if you can create conda env, this could work for a cluster, server or your own computer. 
@@ -189,6 +189,11 @@ conda install -c bioconda nextflow=21.10.6
 Use \texttt{conda\ activate\ nextflow} every time you want to use nextflow
 
 Alternatively, you could install nextflow using the \href{https://www.nextflow.io/docs/latest/getstarted.html}{nextflow installation instructions}
+
+\hypertarget{other-dependencies}{%
+\section{Other dependencies}\label{other-dependencies}}
+
+This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses conda, docker or singularity to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels. Therefore the best option for now is to run it with singularity. \textbf{Install singularity} in your machine following this \href{https://docs.sylabs.io/guides/3.0/user-guide/installation.html\#overview}{instructions}, make sure you are following the right instructions for your system (\href{https://docs.sylabs.io/guides/3.0/user-guide/installation.html\#install-on-linux}{Linux}, \href{https://docs.sylabs.io/guides/3.0/user-guide/installation.html\#install-on-windows-or-mac}{Windows or Mac})
 
 \hypertarget{download-the-nextflow-pipeline}{%
 \section{Download the nextflow pipeline}\label{download-the-nextflow-pipeline}}

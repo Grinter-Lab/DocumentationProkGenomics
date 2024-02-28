@@ -72,7 +72,7 @@
 <p>If you are using a <strong>cluster</strong> there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>nextflow</code> to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested).</p>
 <pre><code># if you are in a cluster
 module add nextflow</code></pre>
-<p>If you can have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your <strong>computer</strong> or your <strong>server</strong>), you could create a conda environment and install nextflow following the next commands</p>
+<p>If you have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your <strong>computer</strong> or your <strong>server</strong>), you could create a conda environment and install nextflow following the next commands</p>
 <pre><code># if you can create conda env, this could work for a cluster, server or your own computer. 
 conda create -n nextflow
 conda activate nextflow
@@ -82,9 +82,15 @@ conda install -c bioconda nextflow=21.10.6
 <p>Use <code>conda activate nextflow</code> every time you want to use nextflow</p>
 <p>Alternatively, you could install nextflow using the <a href="https://www.nextflow.io/docs/latest/getstarted.html">nextflow installation instructions</a></p>
 </div>
-<div id="download-the-nextflow-pipeline" class="section level2" number="3.2">
+<div id="other-dependencies" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">3.2</span> Download the nextflow pipeline<a class="anchor" aria-label="anchor" href="#download-the-nextflow-pipeline"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Other dependencies<a class="anchor" aria-label="anchor" href="#other-dependencies"><i class="fas fa-link"></i></a>
+</h2>
+<p>This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses conda, docker or singularity to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels. Therefore the best option for now is to run it with singularity. <strong>Install singularity</strong> in your machine following this <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview">instructions</a>, make sure you are following the right instructions for your system (<a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux">Linux</a>, <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac">Windows or Mac</a>)</p>
+</div>
+<div id="download-the-nextflow-pipeline" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Download the nextflow pipeline<a class="anchor" aria-label="anchor" href="#download-the-nextflow-pipeline"><i class="fas fa-link"></i></a>
 </h2>
 <p>Run the following command</p>
 <pre><code># when private
@@ -113,9 +119,9 @@ pwd
 # export the path of the folder into your PATH
 export PATH="$PATH:/path/to/dir/program/"</code></pre>
 </div>
-<div id="set-up-your-working-directory" class="section level2" number="3.3">
+<div id="set-up-your-working-directory" class="section level2" number="3.4">
 <h2>
-<span class="header-section-number">3.3</span> Set up your working directory<a class="anchor" aria-label="anchor" href="#set-up-your-working-directory"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.4</span> Set up your working directory<a class="anchor" aria-label="anchor" href="#set-up-your-working-directory"><i class="fas fa-link"></i></a>
 </h2>
 <p>Create a working directory for your project</p>
 <pre><code>mkdir Project1
@@ -125,9 +131,9 @@ cd Project1
 <pre><code>mkdir rawdata
 cd rawdata</code></pre>
 </div>
-<div id="how-to-transfer-raw-data-to-clusterserver" class="section level2" number="3.4">
+<div id="how-to-transfer-raw-data-to-clusterserver" class="section level2" number="3.5">
 <h2>
-<span class="header-section-number">3.4</span> How to transfer raw data to cluster/server<a class="anchor" aria-label="anchor" href="#how-to-transfer-raw-data-to-clusterserver"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5</span> How to transfer raw data to cluster/server<a class="anchor" aria-label="anchor" href="#how-to-transfer-raw-data-to-clusterserver"><i class="fas fa-link"></i></a>
 </h2>
 <p>Open a tab in your terminal from your local computer</p>
 <pre><code># from tab in your local computer
@@ -147,9 +153,10 @@ scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#getting-started"><span class="header-section-number">3</span> Getting Started</a></li>
 <li><a class="nav-link" href="#make-sure-you-have-nextflow-running"><span class="header-section-number">3.1</span> Make sure you have Nextflow running</a></li>
-<li><a class="nav-link" href="#download-the-nextflow-pipeline"><span class="header-section-number">3.2</span> Download the nextflow pipeline</a></li>
-<li><a class="nav-link" href="#set-up-your-working-directory"><span class="header-section-number">3.3</span> Set up your working directory</a></li>
-<li><a class="nav-link" href="#how-to-transfer-raw-data-to-clusterserver"><span class="header-section-number">3.4</span> How to transfer raw data to cluster/server</a></li>
+<li><a class="nav-link" href="#other-dependencies"><span class="header-section-number">3.2</span> Other dependencies</a></li>
+<li><a class="nav-link" href="#download-the-nextflow-pipeline"><span class="header-section-number">3.3</span> Download the nextflow pipeline</a></li>
+<li><a class="nav-link" href="#set-up-your-working-directory"><span class="header-section-number">3.4</span> Set up your working directory</a></li>
+<li><a class="nav-link" href="#how-to-transfer-raw-data-to-clusterserver"><span class="header-section-number">3.5</span> How to transfer raw data to cluster/server</a></li>
 </ul>
 
       <div class="book-extra">
