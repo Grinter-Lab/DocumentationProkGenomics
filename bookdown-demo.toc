@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {3.1}Make sure you have Nextflow running}{9}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Other dependencies}{9}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Download the nextflow pipeline}{10}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Set up your working directory}{10}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Set up your working directory}{11}{section.3.4}%
 \contentsline {section}{\numberline {3.5}How to transfer raw data to cluster/server}{11}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Run Pipeline}{13}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Simple run}{13}{section.4.1}%
@@ -15,11 +15,11 @@
 \contentsline {chapter}{\numberline {7}Troubleshooting}{23}{chapter.7}%
 \contentsline {section}{\numberline {7.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{23}{section.7.1}%
 \contentsline {chapter}{\numberline {8}Resources}{25}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Command Line Intro}{27}{chapter.9}%
-\contentsline {section}{\numberline {9.1}General syntax and conventions:}{27}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Programs:}{27}{subsection.9.1.1}%
-\contentsline {section}{\numberline {9.2}Basic commands:}{28}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Files system}{28}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Connect to the cluster}{31}{chapter.10}%
-\contentsline {subsection}{\numberline {10.0.1}Macs}{31}{subsection.10.0.1}%
-\contentsline {subsection}{\numberline {10.0.2}Windows}{31}{subsection.10.0.2}%
+\contentsline {chapter}{\numberline {9}Command Line Intro}{29}{chapter.9}%
+\contentsline {section}{\numberline {9.1}General syntax and conventions:}{29}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Programs:}{29}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}Basic commands:}{30}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Files system}{30}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Connect to the cluster}{33}{chapter.10}%
+\contentsline {subsection}{\numberline {10.0.1}Macs}{33}{subsection.10.0.1}%
+\contentsline {subsection}{\numberline {10.0.2}Windows}{33}{subsection.10.0.2}%

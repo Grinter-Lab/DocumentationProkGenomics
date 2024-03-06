@@ -32,14 +32,15 @@ This [nextflow](https://www.nextflow.io/) pipeline allows you to run several pro
 
 Before you get started with the pipeline, make sure you have installed nextflow. 
 
-If you are using a **cluster** there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use `tab` after the word `nextflow` to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested).
+If you are using a **cluster** there are high chances that **nextflow** is a module already installed. Please call the module. Type the following command and use `tab` after the word `nextflow` to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested). 
 
 ```
 # if you are in a cluster
 module add nextflow
+
 ```
 
-If you have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your **computer** or your **server**), you could create a conda environment and install nextflow following the next commands
+If you have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your **computer** or your **server**), you could create a conda environment and install nextflow following the following commands
 
 
 ```
@@ -58,7 +59,16 @@ Alternatively, you could install nextflow using the [nextflow installation instr
 
 ## Other dependencies
 
-This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses conda, docker or singularity to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels. Therefore the best option for now is to run it with singularity. **Install singularity** in your machine following this [instructions](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview), make sure you are following the right instructions for your system ([Linux](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux), [Windows or Mac](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac))
+This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses **conda, docker or singularity** to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels in its configuration. Therefore the best option for now is to run it with singularity.
+
+In your **cluster** you need to load **singularity** (successfully tested on singularity-ce version 3.9.9-focal). Please call the module. Type the following command and use `tab` after the word `singularity` to see if you have different versions available.  
+
+```
+# if you are in a cluster
+module add singularity
+```
+
+Alternativaly you can install **singularity** in your machine following this [instructions](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview), make sure you are following the right instructions for your system ([Linux](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux), [Windows or Mac](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac))
 
 
 ## Download the nextflow pipeline

@@ -64,7 +64,7 @@
 <h1>
 <span class="header-section-number">4</span> Run Pipeline<a class="anchor" aria-label="anchor" href="#run-pipeline"><i class="fas fa-link"></i></a>
 </h1>
-<p>Remember to put the <a href="getting-started.">program in your $PATH</a> if you haven’t done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">bash profile</a> (don’t play around with it if you don’t feel confident about it)</p>
+<p>Remember to put the <a href="getting-started.html#download-the-nextflow-pipeline">program in your $PATH</a> if you haven’t done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">bash profile</a> (don’t play around with it if you don’t feel confident about it)</p>
 <p>If you added the program to your <code>$PATH</code> successfully you should be able to run</p>
 <pre><code>#remember to activate the conda env if you are using one
 conda activate nextflow
@@ -99,43 +99,63 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>--sample_path ./rawdata/</code></td>
+<td align="left">
+<code>--sample_path</code> <em>./rawdata/</em>
+</td>
 <td align="left">The default path for the reads is the folder rawdata in the working directory (please follow the instructions for <a href="getting-started.html">setting up the working folder</a>). if you have your reads somewhere else you should set this parameter to that path.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>--sample_name 1-77321</code></td>
+<td align="left">
+<code>--sample_name</code> <em>1-77321</em>
+</td>
 <td align="left">The sample name is the prefix of your samples files. it doesn’t have a default because I don’t know your sample names. Please don’t use sample names with spaces in them. Best approach is to use the name of the file as it comes from the sequencing facility</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>--assembly_type short</code></td>
+<td align="left">
+<code>--assembly_type</code> <em>short</em>
+</td>
 <td align="left">This parameter can be short long or hybrid. The default is ‘short’. if you have short reads you don’t have to specify this parameter. If you pick the argument long or hybrid the longreads parameter should be specify. For hybrid make sure to give a path for short and long reads.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>--longreads  ./rawdata/longreads/</code></td>
+<td align="left">
+<code>--longreads</code> <em>./rawdata/longreads/</em>
+</td>
 <td align="left">Path to the long reads.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>--threads 16</code></td>
+<td align="left">
+<code>--threads</code> <em>16</em>
+</td>
 <td align="left">Number of threats to use. More threats faster your processing. Make sure you know what is available for you.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>--outdir 1-77321</code></td>
+<td align="left">
+<code>--outdir</code> <em>1-77321</em>
+</td>
 <td align="left">The results will be in a folder in the working directory with the same sample name and _results ex. 1-77321_results.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>--reference reference/ReferenceGenome.fasta</code></td>
-<td align="left">If you have a reference genome put the path here. This will activate all the comparative genomics steps. This file can be formatted as fasta or genbank. If you provide a genbank file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations).</td>
+<td align="left">
+<code>--reference</code> <em>ReferenceGenome.fasta or ReferenceGenome.gbk</em>
+</td>
+<td align="left">If you have a reference genome put the path here. This will activate all the comparative genomics steps. This file can be formatted as FASTA or GENBANK. If you provide a GENBANK file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations).</td>
 </tr>
 <tr class="even">
-<td align="left"><code>--adapter_file TruSeq3-PE.fa</code></td>
+<td align="left">
+<code>--adapter_file</code> <em>TruSeq3-PE.fa</em>
+</td>
 <td align="left">To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are <code>TruSeq2-SE.fa</code>, <code>TruSeq2-PE.fa</code>, <code>TruSeq3-PE.fa</code>. The default is <code>TruSeq3-PE.fa</code>.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>--genes_interest GenesBD/*fasta</code></td>
-<td align="left">Path to a folder that contains all genes of interest. The correct formatting is a gene per file in fasta format.</td>
+<td align="left">
+<code>--genes_interest</code> <em>GenesBD/</em>
+</td>
+<td align="left">Path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>--assembly genome_assembly.fasta</code></td>
+<td align="left">
+<code>--assembly</code> <em>genome_assembly.fasta</em>
+</td>
 <td align="left">If you already have an assembly you can set this parameter and the pipeline will skip all the steps of assembly</td>
 </tr>
 </tbody>
@@ -167,7 +187,7 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: February 29, 2024.</p>
+    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 05, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

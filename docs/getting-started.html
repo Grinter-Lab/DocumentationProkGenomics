@@ -69,10 +69,11 @@
 <span class="header-section-number">3.1</span> Make sure you have Nextflow running<a class="anchor" aria-label="anchor" href="#make-sure-you-have-nextflow-running"><i class="fas fa-link"></i></a>
 </h2>
 <p>Before you get started with the pipeline, make sure you have installed nextflow.</p>
-<p>If you are using a <strong>cluster</strong> there are high chances that nextflow is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>nextflow</code> to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested).</p>
+<p>If you are using a <strong>cluster</strong> there are high chances that <strong>nextflow</strong> is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>nextflow</code> to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested).</p>
 <pre><code># if you are in a cluster
-module add nextflow</code></pre>
-<p>If you have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your <strong>computer</strong> or your <strong>server</strong>), you could create a conda environment and install nextflow following the next commands</p>
+module add nextflow
+</code></pre>
+<p>If you have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your <strong>computer</strong> or your <strong>server</strong>), you could create a conda environment and install nextflow following the following commands</p>
 <pre><code># if you can create conda env, this could work for a cluster, server or your own computer. 
 conda create -n nextflow
 conda activate nextflow
@@ -86,7 +87,11 @@ conda install -c bioconda nextflow=21.10.6
 <h2>
 <span class="header-section-number">3.2</span> Other dependencies<a class="anchor" aria-label="anchor" href="#other-dependencies"><i class="fas fa-link"></i></a>
 </h2>
-<p>This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses conda, docker or singularity to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels. Therefore the best option for now is to run it with singularity. <strong>Install singularity</strong> in your machine following this <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview">instructions</a>, make sure you are following the right instructions for your system (<a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux">Linux</a>, <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac">Windows or Mac</a>)</p>
+<p>This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses <strong>conda, docker or singularity</strong> to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels in its configuration. Therefore the best option for now is to run it with singularity.</p>
+<p>In your <strong>cluster</strong> you need to load <strong>singularity</strong> (successfully tested on singularity-ce version 3.9.9-focal). Please call the module. Type the following command and use <code>tab</code> after the word <code>singularity</code> to see if you have different versions available.</p>
+<pre><code># if you are in a cluster
+module add singularity</code></pre>
+<p>Alternativaly you can install <strong>singularity</strong> in your machine following this <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview">instructions</a>, make sure you are following the right instructions for your system (<a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux">Linux</a>, <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac">Windows or Mac</a>)</p>
 </div>
 <div id="download-the-nextflow-pipeline" class="section level2" number="3.3">
 <h2>
@@ -174,7 +179,7 @@ scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: February 29, 2024.</p>
+    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 05, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

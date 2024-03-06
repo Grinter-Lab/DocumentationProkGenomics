@@ -1,6 +1,6 @@
 # Command Line Intro
 
-If you are completely new to working with command line the following short introduction should be useful to get you started. Please read carefully this section, it will help you to understand instructions in later sections.  
+If you are completely new to working with command line the following short introduction should be useful to get you started. Please read this section carefully, it will help you to understand instructions in later sections.  
 
 ## General syntax and conventions:
 
