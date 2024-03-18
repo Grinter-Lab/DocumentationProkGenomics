@@ -64,15 +64,15 @@
 <h1>
 <span class="header-section-number">4</span> Run Pipeline<a class="anchor" aria-label="anchor" href="#run-pipeline"><i class="fas fa-link"></i></a>
 </h1>
-<p>Remember to put the <a href="getting-started.html#download-the-nextflow-pipeline">program in your $PATH</a> if you haven’t done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">bash profile</a> (don’t play around with it if you don’t feel confident about it)</p>
+<p>Remember to put the <a href="getting-started.html">program in your $PATH</a> if you haven’t done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your <a href="https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix">bash profile</a> (don’t play around with it if you don’t feel confident about it)</p>
 <p>If you added the program to your <code>$PATH</code> successfully you should be able to run</p>
 <pre><code>#remember to activate the conda env if you are using one
-conda activate nextflow
+conda activate ProkGenomics_ENV
 
 #run the pipeline
 ProkGenomics
 </code></pre>
-<p>If it starts correctly, you will see something like</p>
+<p>If ProkGenomics starts correctly, you will see something like:</p>
 <pre><code>N E X T F L O W  ~  version 21.10.6
 Launching `main.nf` [focused_noether] - revision: eb930f0e69
 </code></pre>
@@ -82,7 +82,7 @@ Launching `main.nf` [focused_noether] - revision: eb930f0e69
 <span class="header-section-number">4.1</span> Simple run<a class="anchor" aria-label="anchor" href="#simple-run"><i class="fas fa-link"></i></a>
 </h2>
 <pre><code>#remember to activate the conda env if you are using one, and if you haven't activated it yet
-conda activate nextflow
+conda activate ProkGenomics_ENV
 
 #run the pipeline
 ProkGenomics --sample_name '1-77321' -profile singularity
@@ -148,15 +148,27 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 </tr>
 <tr class="odd">
 <td align="left">
-<code>--genes_interest</code> <em>GenesBD/</em>
+<code>--genes_interest</code> <em>GenesDB/</em>
 </td>
-<td align="left">Path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format.</td>
+<td align="left">Path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format. This folder can hava any name, just make sure that it doesn’t contain spaces in the name. Do not store additional files in this folder</td>
 </tr>
 <tr class="even">
 <td align="left">
 <code>--assembly</code> <em>genome_assembly.fasta</em>
 </td>
 <td align="left">If you already have an assembly you can set this parameter and the pipeline will skip all the steps of assembly</td>
+</tr>
+<tr class="odd">
+<td align="left">
+<code>--run_classification</code> <em>FALSE</em>
+</td>
+<td align="left">The taxonomical classifications is based on a database of ~90G. This step will take several hours to complete downloading the database. The default argument is <code>TRUE</code>. When <code>--run_classification FALSE</code> is not set, ProkGenomics will download the database for taxonomical classification and stored in its base-directory. All runs after that will search in this location for the database avoiding the lengthy download again. The download of the database depends on the available disk space, this step will be skipped if there is not enough disk space</td>
+</tr>
+<tr class="even">
+<td align="left">
+<code>--db_gtdb_path</code> <em>/path/gtdb/existing/database</em>
+</td>
+<td align="left">If you already download the gtdbtk database, indicate the path with this option. This parameter is only necessary if you have the gtdbtk database in a different location from where ProkGenomics search by default (ProkGenomics/db_gtdb/)</td>
 </tr>
 </tbody>
 </table></div>
@@ -187,7 +199,7 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 06, 2024.</p>
+    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 18, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,7 +1,7 @@
 # Introduction
 
 
-This [nextflow](https://www.nextflow.io/) pipeline allows you to run several programs using a one-line command. It wraps programs to assemble, annotate, taxonomically identify, genotypic characterize and perform simple comparative genomics on prokaryotic sequencing data. This pipeline is self-contained and is NOT meant to be run in modules (not independent parts of it). This with the intention of simplifying the user interaction and the user knowledge about the bioinformatics behind this processes. However, making yourself familiar with the programs behind the scenes helps you to make informed decisions. Please go to [resources](resources.html) to read more about what each program is doing.  
+This **[nextflow](https://www.nextflow.io/)** pipeline allows you to run several programs using a one-line command. It wraps programs to assemble, annotate, taxonomically identify, genotypic characterize and perform simple comparative genomics on prokaryotic sequencing data. This pipeline is self-contained and is NOT meant to be run in modules (not independent parts of it). This with the intention of simplifying the user interaction and the user knowledge about the bioinformatics behind this processes. However, making yourself familiar with the programs behind the scenes helps you to make informed decisions. Please go to [resources](resources.html) to read more about what each program is doing.  
 
 ## Overview of the pipeline
 
@@ -28,52 +28,51 @@ This [nextflow](https://www.nextflow.io/) pipeline allows you to run several pro
 
 # Getting Started
 
-## Make sure you have Nextflow running
+## Make sure you have the required dependencies
 
-Before you get started with the pipeline, make sure you have installed nextflow. 
+Before you get started with the pipeline, make sure you have installed all necessary dependencies for the program to run. The ProkGenomics pipeline allows you to run several tools without the need of installing each tool by yourself. It uses **[conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)**, **[docker](https://www.docker.com/)**, **[singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html)** or **[Apptainer](https://apptainer.org/get-started/)** to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels in its configuration. Therefore the ***best option for now is to run it with singularity***.
 
-If you are using a **cluster** there are high chances that **nextflow** is a module already installed. Please call the module. Type the following command and use `tab` after the word `nextflow` to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested). 
+To install dependencies the easiest manner is to use **[conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)**. If you are using a **cluster** there are high chances that **[conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)** is a module already installed. Please call the module. Type the following command and use `tab` after the word `conda` to see if you have different versions available. Versions successfully tested are: `conda 4.14.0`, `conda 24.1.2`.
 
 ```
 # if you are in a cluster
-module add nextflow
+module add anaconda
+# or
+module add miniconda
 
 ```
 
-If you have [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html) installed in your system (either in your **computer** or your **server**), you could create a conda environment and install nextflow following the following commands
+If you have **[conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)** installed in your system, either in your **computer** or your **server**, you can type `conda --version` to verify you have the right version to work with. 
+
+
+### Create a conda environment to run ProkGenomics
+
+Create a **[conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html)** environment with the required dependencies. Use the following commands. Versions successfully tested are: `nextflow 21.10.6`, `singularity-ce version 3.9.9-focal`, `singularity version 3.8.6`
 
 
 ```
 # if you can create conda env, this could work for a cluster, server or your own computer. 
-conda create -n nextflow
-conda activate nextflow
+conda create -n ProkGenomics_ENV
+conda activate ProkGenomics_ENV
 conda install -c bioconda nextflow=21.10.6
-
-
-```
-
-Use `conda activate nextflow` every time you want to use nextflow
-
-
-Alternatively, you could install nextflow using the [nextflow installation instructions](https://www.nextflow.io/docs/latest/getstarted.html)
-
-## Other dependencies
-
-This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses **conda, docker or singularity** to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels in its configuration. Therefore the best option for now is to run it with singularity.
-
-In your **cluster** you need to load **singularity** (successfully tested on singularity-ce version 3.9.9-focal). Please call the module. Type the following command and use `tab` after the word `singularity` to see if you have different versions available.  
+conda install conda-forge::singularity
+conda install apptainer
 
 ```
-# if you are in a cluster
-module add singularity
-```
 
-Alternativaly you can install **singularity** in your machine following this [instructions](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview), make sure you are following the right instructions for your system ([Linux](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux), [Windows or Mac](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac))
+Use `conda activate ProkGenomics_ENV` every time you want to use nextflow, and the singularity profile
 
 
-## Download the nextflow pipeline
+Alternatively, you can install **nextflow** and **singularity** without using **conda**. 
 
-Run the following command
+ * Install nextflow using the [nextflow installation instructions](https://www.nextflow.io/docs/latest/getstarted.html).
+
+ * Install **singularity** following these [instructions](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview), make sure you are following the right instructions for your system ([Linux](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux), [Windows or Mac](https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac))
+
+
+## Download the ProkGenomics
+
+Run the following command in your terminal
 
 ```
 # when private
@@ -84,7 +83,7 @@ git clone https://github.com/Grinter-Lab/ProkGenomics.git
 
 ```
 
-If you have issues consulte the [troubleshoot section](troubleshooting.html) for help
+If you have issues consult the [troubleshoot section](troubleshooting.html) for help
 
 A successful download of the repository should look like this:
 
@@ -96,6 +95,8 @@ remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Receiving objects: 100% (3/3), done.
 ```
+
+### Add ProkGenomics to $PATH
 
 To be able to run the program from any location without using the complete path, run the following commands
 
@@ -121,12 +122,17 @@ mkdir Project1
 cd Project1
 
 ```
-Create a folder for your raw data
+Create a folder for your raw data with in that working directory
 
 ```
 mkdir rawdata
 cd rawdata
+# copy your rawdata for that project inside this folder
 ```
+
+Please run one ProkGenomics pipeline per working directory. You can run multiple ProkGenomics at a time if the working directories are different. Several runs in the same working directory cause conflict with the *.nextflow.logs* and your pipeline will fail.  
+
+
 
 ##  How to transfer raw data to cluster/server
 

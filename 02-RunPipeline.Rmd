@@ -1,19 +1,19 @@
 # Run Pipeline
 
-Remember to put the [program in your $PATH ](getting-started.html#download-the-nextflow-pipeline) if you haven't done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your [bash profile](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) (don't play around with it if you don't feel confident about it)
+Remember to put the [program in your $PATH ](getting-started.html) if you haven't done it. This step has to be done every time you start a new terminal session. If you want to make this change permanent you could modify your [bash profile](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix) (don't play around with it if you don't feel confident about it)
 
 If you added the program to your ```$PATH``` successfully you should be able to run
 
 ```
 #remember to activate the conda env if you are using one
-conda activate nextflow
+conda activate ProkGenomics_ENV
 
 #run the pipeline
 ProkGenomics
 
 ```
 
-If it starts correctly, you will see something like
+If ProkGenomics starts correctly, you will see something like:
 
 ```
 N E X T F L O W  ~  version 21.10.6
@@ -28,7 +28,7 @@ If you don't see a version of that go to [troubleshoot](troubleshooting.html) to
 
 ```
 #remember to activate the conda env if you are using one, and if you haven't activated it yet
-conda activate nextflow
+conda activate ProkGenomics_ENV
 
 #run the pipeline
 ProkGenomics --sample_name '1-77321' -profile singularity
@@ -47,5 +47,8 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 |`--outdir` *1-77321*|The results will be in a folder in the working directory with the same sample name and _results ex. 1-77321_results.| |`--assembly`|if you provide a path to an assembly from the reads, the assembly steps will be skipped.|
 |`--reference` *ReferenceGenome.fasta or ReferenceGenome.gbk*|If you have a reference genome put the path here. This will activate all the comparative genomics steps. This file can be formatted as FASTA or GENBANK. If you provide a GENBANK file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations).|
 |`--adapter_file` *TruSeq3-PE.fa*|To trim your short reads you need to specify what adaptors where used when sequencing. Arguments are  `TruSeq2-SE.fa`, `TruSeq2-PE.fa`, `TruSeq3-PE.fa`. The default is `TruSeq3-PE.fa`.  |
-|`--genes_interest` *GenesBD/*|Path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format.  |
+|`--genes_interest` *GenesDB/*|Path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format. This folder can hava any name, just make sure that it doesn't contain spaces in the name. Do not store additional files in this folder|
 |`--assembly` *genome_assembly.fasta*|If you already have an assembly you can set this parameter and the pipeline will skip all the steps of assembly|
+|`--run_classification` *FALSE*| The taxonomical classifications is based on a database of ~90G. This step will take several hours to complete downloading the database. The default argument is `TRUE`. When `--run_classification FALSE` is not set, ProkGenomics will download the database for taxonomical classification and stored in its base-directory. All runs after that will search in this location for the database avoiding the lengthy download again. The download of the database depends on the available disk space, this step will be skipped if there is not enough disk space |
+|`--db_gtdb_path` */path/gtdb/existing/database*| If you already download the gtdbtk database, indicate the path with this option. This parameter is only necessary if you have the gtdbtk database in a different location from where ProkGenomics search by default (ProkGenomics/db_gtdb/)|
+

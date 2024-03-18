@@ -2,11 +2,12 @@
 \contentsline {chapter}{\numberline {2}Introduction}{7}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Overview of the pipeline}{7}{section.2.1}%
 \contentsline {chapter}{\numberline {3}Getting Started}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Make sure you have Nextflow running}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Other dependencies}{9}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Download the nextflow pipeline}{10}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Set up your working directory}{11}{section.3.4}%
-\contentsline {section}{\numberline {3.5}How to transfer raw data to cluster/server}{11}{section.3.5}%
+\contentsline {section}{\numberline {3.1}Make sure you have the required dependencies}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Create a conda environment to run ProkGenomics}{10}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Download the ProkGenomics}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Add ProkGenomics to \$PATH}{10}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Set up your working directory}{11}{section.3.3}%
+\contentsline {section}{\numberline {3.4}How to transfer raw data to cluster/server}{11}{section.3.4}%
 \contentsline {chapter}{\numberline {4}Run Pipeline}{13}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Simple run}{13}{section.4.1}%
 \contentsline {chapter}{\numberline {5}Understand Outputs}{17}{chapter.5}%

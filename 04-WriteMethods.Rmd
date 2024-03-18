@@ -1,3 +1,11 @@
 # Write Methods
 
-Workflow of pipeline
+<img src="images/Method.png" width="620">
+
+ 1. Input short reads paired ends from whole genome bacteria sequencing 
+ 2. Fastqc is used to determined quality control of rawdata
+ 3. Trimmomatic is used for trimming adaptor in the sequencing data
+ 4.
+ 5.
+ 6.
+ 7. 

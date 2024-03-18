@@ -32,3 +32,6 @@ pre code {
 .bluesquare > :first-child, .bluesquare > :nth-child(2) {
   margin-top: 0;
 }
+.inline-figure {
+  border: none !important;
+}

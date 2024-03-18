@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 Getting Started | ProkGenomics</title>
 <meta name="author" content="Laura Perlaza-Jiménez (Ph.D.)">
-<meta name="description" content="ProGenomicsGProkGenomics  3.1 Make sure you have Nextflow running Before you get started with the pipeline, make sure you have installed nextflow. If you are using a cluster there are high chances...">
+<meta name="description" content="ProGenomicsGProkGenomics  3.1 Make sure you have the required dependencies Before you get started with the pipeline, make sure you have installed all necessary dependencies for the program to run....">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Chapter 3 Getting Started | ProkGenomics">
 <meta property="og:type" content="book">
-<meta property="og:description" content="ProGenomicsGProkGenomics  3.1 Make sure you have Nextflow running Before you get started with the pipeline, make sure you have installed nextflow. If you are using a cluster there are high chances...">
+<meta property="og:description" content="ProGenomicsGProkGenomics  3.1 Make sure you have the required dependencies Before you get started with the pipeline, make sure you have installed all necessary dependencies for the program to run....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 Getting Started | ProkGenomics">
-<meta name="twitter:description" content="ProGenomicsGProkGenomics  3.1 Make sure you have Nextflow running Before you get started with the pipeline, make sure you have installed nextflow. If you are using a cluster there are high chances...">
+<meta name="twitter:description" content="ProGenomicsGProkGenomics  3.1 Make sure you have the required dependencies Before you get started with the pipeline, make sure you have installed all necessary dependencies for the program to run....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -64,47 +64,50 @@
 <h1>
 <span class="header-section-number">3</span> Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
 </h1>
-<div id="make-sure-you-have-nextflow-running" class="section level2" number="3.1">
+<div id="make-sure-you-have-the-required-dependencies" class="section level2" number="3.1">
 <h2>
-<span class="header-section-number">3.1</span> Make sure you have Nextflow running<a class="anchor" aria-label="anchor" href="#make-sure-you-have-nextflow-running"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1</span> Make sure you have the required dependencies<a class="anchor" aria-label="anchor" href="#make-sure-you-have-the-required-dependencies"><i class="fas fa-link"></i></a>
 </h2>
-<p>Before you get started with the pipeline, make sure you have installed nextflow.</p>
-<p>If you are using a <strong>cluster</strong> there are high chances that <strong>nextflow</strong> is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>nextflow</code> to see if you have different versions available. Ideally use the 21.10.6 version (which this pipeline has been successfully tested).</p>
+<p>Before you get started with the pipeline, make sure you have installed all necessary dependencies for the program to run. The ProkGenomics pipeline allows you to run several tools without the need of installing each tool by yourself. It uses <strong><a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a></strong>, <strong><a href="https://www.docker.com/">docker</a></strong>, <strong><a href="https://docs.sylabs.io/guides/3.5/user-guide/introduction.html">singularity</a></strong> or <strong><a href="https://apptainer.org/get-started/">Apptainer</a></strong> to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels in its configuration. Therefore the <strong><em>best option for now is to run it with singularity</em></strong>.</p>
+<p>To install dependencies the easiest manner is to use <strong><a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a></strong>. If you are using a <strong>cluster</strong> there are high chances that <strong><a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a></strong> is a module already installed. Please call the module. Type the following command and use <code>tab</code> after the word <code>conda</code> to see if you have different versions available. Versions successfully tested are: <code>conda 4.14.0</code>, <code>conda 24.1.2</code>.</p>
 <pre><code># if you are in a cluster
-module add nextflow
+module add anaconda
+# or
+module add miniconda
 </code></pre>
-<p>If you have <a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a> installed in your system (either in your <strong>computer</strong> or your <strong>server</strong>), you could create a conda environment and install nextflow following the following commands</p>
+<p>If you have <strong><a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a></strong> installed in your system, either in your <strong>computer</strong> or your <strong>server</strong>, you can type <code>conda --version</code> to verify you have the right version to work with.</p>
+<div id="create-a-conda-environment-to-run-prokgenomics" class="section level3" number="3.1.1">
+<h3>
+<span class="header-section-number">3.1.1</span> Create a conda environment to run ProkGenomics<a class="anchor" aria-label="anchor" href="#create-a-conda-environment-to-run-prokgenomics"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create a <strong><a href="https://conda.io/projects/conda/en/latest/user-guide/getting-started.html">conda</a></strong> environment with the required dependencies. Use the following commands. Versions successfully tested are: <code>nextflow 21.10.6</code>, <code>singularity-ce version 3.9.9-focal</code>, <code>singularity version 3.8.6</code></p>
 <pre><code># if you can create conda env, this could work for a cluster, server or your own computer. 
-conda create -n nextflow
-conda activate nextflow
+conda create -n ProkGenomics_ENV
+conda activate ProkGenomics_ENV
 conda install -c bioconda nextflow=21.10.6
-
+conda install conda-forge::singularity
+conda install apptainer
 </code></pre>
-<p>Use <code>conda activate nextflow</code> every time you want to use nextflow</p>
-<p>Alternatively, you could install nextflow using the <a href="https://www.nextflow.io/docs/latest/getstarted.html">nextflow installation instructions</a></p>
+<p>Use <code>conda activate ProkGenomics_ENV</code> every time you want to use nextflow, and the singularity profile</p>
+<p>Alternatively, you can install <strong>nextflow</strong> and <strong>singularity</strong> without using <strong>conda</strong>.</p>
+<ul>
+<li><p>Install nextflow using the <a href="https://www.nextflow.io/docs/latest/getstarted.html">nextflow installation instructions</a>.</p></li>
+<li><p>Install <strong>singularity</strong> following these <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview">instructions</a>, make sure you are following the right instructions for your system (<a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux">Linux</a>, <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac">Windows or Mac</a>)</p></li>
+</ul>
 </div>
-<div id="other-dependencies" class="section level2" number="3.2">
-<h2>
-<span class="header-section-number">3.2</span> Other dependencies<a class="anchor" aria-label="anchor" href="#other-dependencies"><i class="fas fa-link"></i></a>
-</h2>
-<p>This pipeline allows you to run several tools without the need of installing each tool by yourself. It uses <strong>conda, docker or singularity</strong> to create environments or containers with the necessary dependencies and tools. At the moment, the option of running this pipeline with conda is susceptible to break in some conda versions or conda with customised channels in its configuration. Therefore the best option for now is to run it with singularity.</p>
-<p>In your <strong>cluster</strong> you need to load <strong>singularity</strong> (successfully tested on singularity-ce version 3.9.9-focal). Please call the module. Type the following command and use <code>tab</code> after the word <code>singularity</code> to see if you have different versions available.</p>
-<pre><code># if you are in a cluster
-module add singularity</code></pre>
-<p>Alternativaly you can install <strong>singularity</strong> in your machine following this <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#overview">instructions</a>, make sure you are following the right instructions for your system (<a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-linux">Linux</a>, <a href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html#install-on-windows-or-mac">Windows or Mac</a>)</p>
 </div>
-<div id="download-the-nextflow-pipeline" class="section level2" number="3.3">
+<div id="download-the-prokgenomics" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">3.3</span> Download the nextflow pipeline<a class="anchor" aria-label="anchor" href="#download-the-nextflow-pipeline"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Download the ProkGenomics<a class="anchor" aria-label="anchor" href="#download-the-prokgenomics"><i class="fas fa-link"></i></a>
 </h2>
-<p>Run the following command</p>
+<p>Run the following command in your terminal</p>
 <pre><code># when private
 git clone git@github.com:Grinter-Lab/ProkGenomics.git
 
 # when public
 git clone https://github.com/Grinter-Lab/ProkGenomics.git
 </code></pre>
-<p>If you have issues consulte the <a href="troubleshooting.html">troubleshoot section</a> for help</p>
+<p>If you have issues consult the <a href="troubleshooting.html">troubleshoot section</a> for help</p>
 <p>A successful download of the repository should look like this:</p>
 <pre><code>Cloning into 'ProkGenomics'...
 remote: Enumerating objects: 3, done.
@@ -112,6 +115,10 @@ remote: Counting objects: 100% (3/3), done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Receiving objects: 100% (3/3), done.</code></pre>
+<div id="add-prokgenomics-to-path" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> Add ProkGenomics to $PATH<a class="anchor" aria-label="anchor" href="#add-prokgenomics-to-path"><i class="fas fa-link"></i></a>
+</h3>
 <p>To be able to run the program from any location without using the complete path, run the following commands</p>
 <pre><code># move to the program folder
 cd ProkGenomics/
@@ -124,21 +131,24 @@ pwd
 # export the path of the folder into your PATH
 export PATH="$PATH:/path/to/dir/program/"</code></pre>
 </div>
-<div id="set-up-your-working-directory" class="section level2" number="3.4">
+</div>
+<div id="set-up-your-working-directory" class="section level2" number="3.3">
 <h2>
-<span class="header-section-number">3.4</span> Set up your working directory<a class="anchor" aria-label="anchor" href="#set-up-your-working-directory"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.3</span> Set up your working directory<a class="anchor" aria-label="anchor" href="#set-up-your-working-directory"><i class="fas fa-link"></i></a>
 </h2>
 <p>Create a working directory for your project</p>
 <pre><code>mkdir Project1
 cd Project1
 </code></pre>
-<p>Create a folder for your raw data</p>
+<p>Create a folder for your raw data with in that working directory</p>
 <pre><code>mkdir rawdata
-cd rawdata</code></pre>
+cd rawdata
+# copy your rawdata for that project inside this folder</code></pre>
+<p>Please run one ProkGenomics pipeline per working directory. You can run multiple ProkGenomics at a time if the working directories are different. Several runs in the same working directory cause conflict with the <em>.nextflow.logs</em> and your pipeline will fail.</p>
 </div>
-<div id="how-to-transfer-raw-data-to-clusterserver" class="section level2" number="3.5">
+<div id="how-to-transfer-raw-data-to-clusterserver" class="section level2" number="3.4">
 <h2>
-<span class="header-section-number">3.5</span> How to transfer raw data to cluster/server<a class="anchor" aria-label="anchor" href="#how-to-transfer-raw-data-to-clusterserver"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.4</span> How to transfer raw data to cluster/server<a class="anchor" aria-label="anchor" href="#how-to-transfer-raw-data-to-clusterserver"><i class="fas fa-link"></i></a>
 </h2>
 <p>Open a tab in your terminal from your local computer</p>
 <pre><code># from tab in your local computer
@@ -157,11 +167,14 @@ scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#getting-started"><span class="header-section-number">3</span> Getting Started</a></li>
-<li><a class="nav-link" href="#make-sure-you-have-nextflow-running"><span class="header-section-number">3.1</span> Make sure you have Nextflow running</a></li>
-<li><a class="nav-link" href="#other-dependencies"><span class="header-section-number">3.2</span> Other dependencies</a></li>
-<li><a class="nav-link" href="#download-the-nextflow-pipeline"><span class="header-section-number">3.3</span> Download the nextflow pipeline</a></li>
-<li><a class="nav-link" href="#set-up-your-working-directory"><span class="header-section-number">3.4</span> Set up your working directory</a></li>
-<li><a class="nav-link" href="#how-to-transfer-raw-data-to-clusterserver"><span class="header-section-number">3.5</span> How to transfer raw data to cluster/server</a></li>
+<li>
+<a class="nav-link" href="#make-sure-you-have-the-required-dependencies"><span class="header-section-number">3.1</span> Make sure you have the required dependencies</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#create-a-conda-environment-to-run-prokgenomics"><span class="header-section-number">3.1.1</span> Create a conda environment to run ProkGenomics</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#download-the-prokgenomics"><span class="header-section-number">3.2</span> Download the ProkGenomics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#add-prokgenomics-to-path"><span class="header-section-number">3.2.1</span> Add ProkGenomics to $PATH</a></li></ul>
+</li>
+<li><a class="nav-link" href="#set-up-your-working-directory"><span class="header-section-number">3.3</span> Set up your working directory</a></li>
+<li><a class="nav-link" href="#how-to-transfer-raw-data-to-clusterserver"><span class="header-section-number">3.4</span> How to transfer raw data to cluster/server</a></li>
 </ul>
 
       <div class="book-extra">
@@ -179,7 +192,7 @@ scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 06, 2024.</p>
+    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 18, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
