@@ -90,7 +90,7 @@ cp <path of file to be copy> <destination path>
 
 ## Files system
 
-• Please note that directories are structured in a [hierarchical system](https://www.geeksforgeeks.org/structures-of-directory-in-operating-system/). You have to know where you are standing to ask the computer to move to the correct folder.
+Please note that directories are structured in a [hierarchical system](https://www.geeksforgeeks.org/structures-of-directory-in-operating-system/). You have to know where you are standing to ask the computer to move to the correct folder.
 
 Example of folder structure:
 

@@ -6,7 +6,7 @@ make-sure-you-have-the-required-dependencies
 create-a-conda-environment-to-run-prokgenomics
 download-the-prokgenomics
 add-prokgenomics-to-path
-set-up-your-working-directory
+set-up-your-project
 how-to-transfer-raw-data-to-clusterserver
 run-pipeline
 simple-run

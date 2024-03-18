@@ -113,7 +113,7 @@ pwd
 export PATH="$PATH:/path/to/dir/program/"
 ```
 
-## Set up your working directory
+# Set up your project
 
 Create a working directory for your project
 

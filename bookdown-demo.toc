@@ -6,21 +6,21 @@
 \contentsline {subsection}{\numberline {3.1.1}Create a conda environment to run ProkGenomics}{10}{subsection.3.1.1}%
 \contentsline {section}{\numberline {3.2}Download the ProkGenomics}{10}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Add ProkGenomics to \$PATH}{10}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}Set up your working directory}{11}{section.3.3}%
-\contentsline {section}{\numberline {3.4}How to transfer raw data to cluster/server}{11}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Run Pipeline}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Simple run}{13}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Understand Outputs}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Additional outputs description}{17}{section.5.1}%
-\contentsline {chapter}{\numberline {6}Write Methods}{21}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Troubleshooting}{23}{chapter.7}%
-\contentsline {section}{\numberline {7.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{23}{section.7.1}%
-\contentsline {chapter}{\numberline {8}Resources}{25}{chapter.8}%
-\contentsline {chapter}{\numberline {9}Command Line Intro}{29}{chapter.9}%
-\contentsline {section}{\numberline {9.1}General syntax and conventions:}{29}{section.9.1}%
-\contentsline {subsection}{\numberline {9.1.1}Programs:}{29}{subsection.9.1.1}%
-\contentsline {section}{\numberline {9.2}Basic commands:}{30}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Files system}{30}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Connect to the cluster}{33}{chapter.10}%
-\contentsline {subsection}{\numberline {10.0.1}Macs}{33}{subsection.10.0.1}%
-\contentsline {subsection}{\numberline {10.0.2}Windows}{33}{subsection.10.0.2}%
+\contentsline {chapter}{\numberline {4}Set up your project}{13}{chapter.4}%
+\contentsline {section}{\numberline {4.1}How to transfer raw data to cluster/server}{13}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Run Pipeline}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Simple run}{15}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Understand Outputs}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Additional outputs description}{19}{section.6.1}%
+\contentsline {chapter}{\numberline {7}Write Methods}{23}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Troubleshooting}{25}{chapter.8}%
+\contentsline {section}{\numberline {8.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{25}{section.8.1}%
+\contentsline {chapter}{\numberline {9}Resources}{27}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Command Line Intro}{31}{chapter.10}%
+\contentsline {section}{\numberline {10.1}General syntax and conventions:}{31}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Programs:}{31}{subsection.10.1.1}%
+\contentsline {section}{\numberline {10.2}Basic commands:}{32}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Files system}{32}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Connect to the cluster}{35}{chapter.11}%
+\contentsline {subsection}{\numberline {11.0.1}Macs}{35}{subsection.11.0.1}%
+\contentsline {subsection}{\numberline {11.0.2}Windows}{35}{subsection.11.0.2}%

@@ -46,13 +46,14 @@
 <li><a class="" href="index.html"><span class="header-section-number">1</span> START HERE</a></li>
 <li><a class="" href="introduction.html"><span class="header-section-number">2</span> Introduction</a></li>
 <li><a class="active" href="getting-started.html"><span class="header-section-number">3</span> Getting Started</a></li>
-<li><a class="" href="run-pipeline.html"><span class="header-section-number">4</span> Run Pipeline</a></li>
-<li><a class="" href="understand-outputs.html"><span class="header-section-number">5</span> Understand Outputs</a></li>
-<li><a class="" href="write-methods.html"><span class="header-section-number">6</span> Write Methods</a></li>
-<li><a class="" href="troubleshooting.html"><span class="header-section-number">7</span> Troubleshooting</a></li>
-<li><a class="" href="resources.html"><span class="header-section-number">8</span> Resources</a></li>
-<li><a class="" href="command-line-intro.html"><span class="header-section-number">9</span> Command Line Intro</a></li>
-<li><a class="" href="connect-to-the-cluster.html"><span class="header-section-number">10</span> Connect to the cluster</a></li>
+<li><a class="" href="set-up-your-project.html"><span class="header-section-number">4</span> Set up your project</a></li>
+<li><a class="" href="run-pipeline.html"><span class="header-section-number">5</span> Run Pipeline</a></li>
+<li><a class="" href="understand-outputs.html"><span class="header-section-number">6</span> Understand Outputs</a></li>
+<li><a class="" href="write-methods.html"><span class="header-section-number">7</span> Write Methods</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">8</span> Troubleshooting</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">9</span> Resources</a></li>
+<li><a class="" href="command-line-intro.html"><span class="header-section-number">10</span> Command Line Intro</a></li>
+<li><a class="" href="connect-to-the-cluster.html"><span class="header-section-number">11</span> Connect to the cluster</a></li>
 </ul>
 
         <div class="book-extra">
@@ -132,37 +133,10 @@ pwd
 export PATH="$PATH:/path/to/dir/program/"</code></pre>
 </div>
 </div>
-<div id="set-up-your-working-directory" class="section level2" number="3.3">
-<h2>
-<span class="header-section-number">3.3</span> Set up your working directory<a class="anchor" aria-label="anchor" href="#set-up-your-working-directory"><i class="fas fa-link"></i></a>
-</h2>
-<p>Create a working directory for your project</p>
-<pre><code>mkdir Project1
-cd Project1
-</code></pre>
-<p>Create a folder for your raw data with in that working directory</p>
-<pre><code>mkdir rawdata
-cd rawdata
-# copy your rawdata for that project inside this folder</code></pre>
-<p>Please run one ProkGenomics pipeline per working directory. You can run multiple ProkGenomics at a time if the working directories are different. Several runs in the same working directory cause conflict with the <em>.nextflow.logs</em> and your pipeline will fail.</p>
-</div>
-<div id="how-to-transfer-raw-data-to-clusterserver" class="section level2" number="3.4">
-<h2>
-<span class="header-section-number">3.4</span> How to transfer raw data to cluster/server<a class="anchor" aria-label="anchor" href="#how-to-transfer-raw-data-to-clusterserver"><i class="fas fa-link"></i></a>
-</h2>
-<p>Open a tab in your terminal from your local computer</p>
-<pre><code># from tab in your local computer
-# scp &lt;location in the server, notice structue as serve:path&gt; &lt;location in your computer where you want the file to go&gt;
-# notice that the wild card allows you to move all files ending in fq.gz. if your files have a different extention please modify accordently (ex. fastq.gz)
-
-scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
-</code></pre>
-
-</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="introduction.html"><span class="header-section-number">2</span> Introduction</a></div>
-<div class="next"><a href="run-pipeline.html"><span class="header-section-number">4</span> Run Pipeline</a></div>
+<div class="next"><a href="set-up-your-project.html"><span class="header-section-number">4</span> Set up your project</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -173,8 +147,6 @@ scp *fq.gz &lt;username&gt;@&lt;cluster_name&gt;:/srv/home/username/folder/
 <li>
 <a class="nav-link" href="#download-the-prokgenomics"><span class="header-section-number">3.2</span> Download the ProkGenomics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#add-prokgenomics-to-path"><span class="header-section-number">3.2.1</span> Add ProkGenomics to $PATH</a></li></ul>
 </li>
-<li><a class="nav-link" href="#set-up-your-working-directory"><span class="header-section-number">3.3</span> Set up your working directory</a></li>
-<li><a class="nav-link" href="#how-to-transfer-raw-data-to-clusterserver"><span class="header-section-number">3.4</span> How to transfer raw data to cluster/server</a></li>
 </ul>
 
       <div class="book-extra">
