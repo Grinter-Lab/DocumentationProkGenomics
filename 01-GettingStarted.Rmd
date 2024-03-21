@@ -96,10 +96,11 @@ remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Receiving objects: 100% (3/3), done.
 ```
 
-### Add ProkGenomics to $PATH
+### Add ProkGenomics to $PATH 
 
 To be able to run the program from any location without using the complete path, run the following commands
 
+1. Find out the path where your program is located
 ```
 # move to the program folder
 cd ProkGenomics/
@@ -109,8 +110,26 @@ pwd
 
 # This will print your location something like: /path/to/dir/program/
 
-# export the path of the folder into your PATH
+```
+
+2. add this path to the default executable folder. 
+
+
+```
+# IF you are not using a conda environment 
+# export the path of the folder into your PATH if your install singularity and nextflow in bin
 export PATH="$PATH:/path/to/dir/program/"
+
+# IF you are working with a conda env
+
+#find your conda env path and add the content of 
+conda list
+
+cd /path/to/conda/env
+for name in /path/to/dir/program/ProkGenomics/*; 
+do
+  ln -s name
+done
 ```
 
 # Set up your project

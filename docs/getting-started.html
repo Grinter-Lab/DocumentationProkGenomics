@@ -121,6 +121,9 @@ Receiving objects: 100% (3/3), done.</code></pre>
 <span class="header-section-number">3.2.1</span> Add ProkGenomics to $PATH<a class="anchor" aria-label="anchor" href="#add-prokgenomics-to-path"><i class="fas fa-link"></i></a>
 </h3>
 <p>To be able to run the program from any location without using the complete path, run the following commands</p>
+<ol style="list-style-type: decimal">
+<li>Find out the path where your program is located</li>
+</ol>
 <pre><code># move to the program folder
 cd ProkGenomics/
 
@@ -128,9 +131,24 @@ cd ProkGenomics/
 pwd 
 
 # This will print your location something like: /path/to/dir/program/
+</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>add this path to the default executable folder.</li>
+</ol>
+<pre><code># IF you are not using a conda environment 
+# export the path of the folder into your PATH if your install singularity and nextflow in bin
+export PATH="$PATH:/path/to/dir/program/"
 
-# export the path of the folder into your PATH
-export PATH="$PATH:/path/to/dir/program/"</code></pre>
+# IF you are working with a conda env
+
+#find your conda env path and add the content of 
+conda list
+
+cd /path/to/conda/env
+for name in /path/to/dir/program/ProkGenomics/*; 
+do
+  ln -s name
+done</code></pre>
 </div>
 </div>
 </div>
@@ -164,7 +182,7 @@ export PATH="$PATH:/path/to/dir/program/"</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 18, 2024.</p>
+    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 22, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

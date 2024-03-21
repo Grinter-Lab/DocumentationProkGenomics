@@ -87,7 +87,7 @@
 
 \title{ProkGenomics}
 \author{Laura Perlaza-Jiménez (Ph.D.)}
-\date{Compiled: March 18, 2024}
+\date{Compiled: March 22, 2024}
 
 \begin{document}
 \maketitle
@@ -103,7 +103,7 @@
 
 {I know command-line and SSH}
 
-{ProkGenomics is installed }
+{ProkGenomics is already installed }
 
 \hypertarget{introduction}{%
 \chapter{Introduction}\label{introduction}}
@@ -238,6 +238,13 @@ Receiving objects: 100% (3/3), done.
 
 To be able to run the program from any location without using the complete path, run the following commands
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Find out the path where your program is located
+\end{enumerate}
+
 \begin{verbatim}
 # move to the program folder
 cd ProkGenomics/
@@ -246,9 +253,31 @@ cd ProkGenomics/
 pwd 
 
 # This will print your location something like: /path/to/dir/program/
+\end{verbatim}
 
-# export the path of the folder into your PATH
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  add this path to the default executable folder.
+\end{enumerate}
+
+\begin{verbatim}
+# IF you are not using a conda environment 
+# export the path of the folder into your PATH if your install singularity and nextflow in bin
 export PATH="$PATH:/path/to/dir/program/"
+
+# IF you are working with a conda env
+
+#find your conda env path and add the content of 
+conda list
+
+cd /path/to/conda/env
+for name in /path/to/dir/program/ProkGenomics/*; 
+do
+  ln -s name
+done
 \end{verbatim}
 
 \hypertarget{set-up-your-project}{%
