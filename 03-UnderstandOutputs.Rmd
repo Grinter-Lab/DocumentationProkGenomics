@@ -2,95 +2,11 @@
 
 This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named [`<sample_name>_ProkGenomics_report.html`](https://bioinformatics.erc.monash.edu/home/lper0012/ProkGenomics/1-77321-LFA6246_L2_ProkGenomics_report.html) (click hyperlink to see)
 
-
+## How to explore files
 
 ## Additional outputs description
 
 Folder structure
 ```
-sample_name_results
-├── fastqc
-│   ├── sample_prefix_1_fastqc.html
-│   ├── sample_prefix_1_fastqc.zip
-│   ├── sample_prefix_2_fastqc.html
-│   ├── sample_prefix_2_fastqc.zip
-│   ├── sample_prefix.R1.trim_fastqc.html
-│   ├── sample_prefix.R1.trim_fastqc.zip
-│   ├── sample_prefix.R1.unpaired.trim_fastqc.html
-│   ├── sample_prefix.R1.unpaired.trim_fastqc.zip
-│   ├── sample_prefix.R2.trim_fastqc.html
-│   ├── sample_prefix.R2.trim_fastqc.zip
-│   ├── sample_prefix.R2.unpaired.trim_fastqc.html
-│   ├── sample_prefix.R2.unpaired.trim_fastqc.zip
-│   └── software_details.txt
-├── trimmomatic
-│   ├── sample_prefix.R1.trim.fastq
-│   ├── sample_prefix.R1.unpaired.trim.fastq
-│   ├── sample_prefix.R2.trim.fastq
-│   ├── sample_prefix.R2.unpaired.trim.fastq
-│   └── software_details.txt
-└── unicycler
-    ├── sample_prefix
-    │   ├── 001_spades_graph_k027.gfa
-    │   ├── 001_spades_graph_k053.gfa
-    │   ├── 001_spades_graph_k071.gfa
-    │   ├── 001_spades_graph_k087.gfa
-    │   ├── 001_spades_graph_k099.gfa
-    │   ├── 001_spades_graph_k111.gfa
-    │   ├── 001_spades_graph_k119.gfa
-    │   ├── 001_spades_graph_k127.gfa
-    │   ├── 002_depth_filter.gfa
-    │   ├── 003_overlaps_removed.gfa
-    │   ├── 004_bridges_applied.gfa
-    │   ├── 005_final_clean.gfa
-    │   ├── assembly.fasta <<<<< Complete de novo assembly
-    │   ├── assembly.gfa
-    │   └── unicycler.log
-    └── software_details.txt
-├── checkm
-│   ├── sample_prefix.tsv <<<<< QC de novo assembly
-│   └── software_details.txt
-├── checkv 
-│   ├── sample_prefix
-│   │   ├── complete_genomes.tsv
-│   │   ├── completeness.tsv
-│   │   ├── contamination.tsv
-│   │   ├── proviruses.fna
-│   │   ├── quality_summary.tsv <<<<< Phages or Provirus detected
-│   │   └── viruses.fna
-│   └── software_details.txt
-├── prokka
-│   ├── sample_prefix_annotation_output
-│   │   ├── sample_prefix.err
-│   │   ├── sample_prefix.faa
-│   │   ├── sample_prefix.ffn
-│   │   ├── sample_prefix.fna
-│   │   ├── sample_prefix.fsa
-│   │   ├── sample_prefix.gbk <<<<< Gene Annotation
-│   │   ├── sample_prefix.gff <<<<< Gene Annotation
-│   │   ├── sample_prefix.log
-│   │   ├── sample_prefix.sqn
-│   │   ├── sample_prefix.tbl
-│   │   ├── sample_prefix.tsv
-│   │   └── sample_prefix.txt
-│   └── software_details.txt
-├── pharokka
-│   ├── sample_prefix_annotation_output
-│   │   ├── sample_prefix.err
-│   │   ├── sample_prefix.faa
-│   │   ├── sample_prefix.ffn
-│   │   ├── sample_prefix.fna
-│   │   ├── sample_prefix.fsa
-│   │   ├── sample_prefix.gbk
-│   │   ├── sample_prefix.gff <<<<< Phages or Provirus annotation
-│   │   ├── sample_prefix.log
-│   │   ├── sample_prefix.sqn
-│   │   ├── sample_prefix.tbl
-│   │   ├── sample_prefix.tsv
-│   │   └── sample_prefix.txt
-│   └── software_details.txt
-
-  
-
 ```
 

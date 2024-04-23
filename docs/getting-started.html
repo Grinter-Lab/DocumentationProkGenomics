@@ -116,9 +116,9 @@ remote: Counting objects: 100% (3/3), done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Receiving objects: 100% (3/3), done.</code></pre>
-<div id="add-prokgenomics-to-path" class="section level3" number="3.2.1">
+<div id="execute-prokgenomics-from-any-path" class="section level3" number="3.2.1">
 <h3>
-<span class="header-section-number">3.2.1</span> Add ProkGenomics to $PATH<a class="anchor" aria-label="anchor" href="#add-prokgenomics-to-path"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2.1</span> Execute ProkGenomics from any path<a class="anchor" aria-label="anchor" href="#execute-prokgenomics-from-any-path"><i class="fas fa-link"></i></a>
 </h3>
 <p>To be able to run the program from any location without using the complete path, run the following commands</p>
 <ol style="list-style-type: decimal">
@@ -135,16 +135,16 @@ pwd
 <ol start="2" style="list-style-type: decimal">
 <li>add this path to the default executable folder.</li>
 </ol>
-<pre><code># IF you are not using a conda environment 
+<pre><code># IF you are NOT using a conda environment 
 # export the path of the folder into your PATH if your install singularity and nextflow in bin
 export PATH="$PATH:/path/to/dir/program/"
 
 # IF you are working with a conda env
 
 #find your conda env path and add the content of 
-conda list
+conda env list
 
-cd /path/to/conda/env
+cd /path/to/conda/env/bin
 for name in /path/to/dir/program/ProkGenomics/*; 
 do
   ln -s name
@@ -163,7 +163,7 @@ done</code></pre>
 <a class="nav-link" href="#make-sure-you-have-the-required-dependencies"><span class="header-section-number">3.1</span> Make sure you have the required dependencies</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#create-a-conda-environment-to-run-prokgenomics"><span class="header-section-number">3.1.1</span> Create a conda environment to run ProkGenomics</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#download-the-prokgenomics"><span class="header-section-number">3.2</span> Download the ProkGenomics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#add-prokgenomics-to-path"><span class="header-section-number">3.2.1</span> Add ProkGenomics to $PATH</a></li></ul>
+<a class="nav-link" href="#download-the-prokgenomics"><span class="header-section-number">3.2</span> Download the ProkGenomics</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#execute-prokgenomics-from-any-path"><span class="header-section-number">3.2.1</span> Execute ProkGenomics from any path</a></li></ul>
 </li>
 </ul>
 
@@ -182,7 +182,7 @@ done</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 22, 2024.</p>
+    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: April 23, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

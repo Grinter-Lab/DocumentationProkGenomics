@@ -74,9 +74,7 @@ conda activate ProkGenomics_ENV
 ProkGenomics
 </code></pre>
 <p>If ProkGenomics starts correctly, you will see something like:</p>
-<pre><code>N E X T F L O W  ~  version 21.10.6
-Launching `main.nf` [focused_noether] - revision: eb930f0e69
-</code></pre>
+<div class="inline-figure"><img src="images/help.png" width="620"></div>
 <p>If you don’t see a version of that go to <a href="troubleshooting.html">troubleshoot</a> to look for possible solutions</p>
 <div id="simple-run" class="section level2" number="5.1">
 <h2>
@@ -86,7 +84,40 @@ Launching `main.nf` [focused_noether] - revision: eb930f0e69
 conda activate ProkGenomics_ENV
 
 #run the pipeline
-ProkGenomics --sample_name '1-77321' -profile singularity
+ProkGenomics -profile singularity --sample_name '1-77321' 
+</code></pre>
+</div>
+<div id="include-comparative-genomcis-steps" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Include comparative genomcis steps<a class="anchor" aria-label="anchor" href="#include-comparative-genomcis-steps"><i class="fas fa-link"></i></a>
+</h2>
+<pre><code>#remember to activate the conda env if you are using one, and if you haven't activated it yet
+conda activate ProkGenomics_ENV
+
+#run the pipeline
+ProkGenomics -profile singularity --sample_name '1-77321' --reference reference.fasta 
+</code></pre>
+</div>
+<div id="include-characterization-of-genes-of-interest" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Include characterization of genes of interest<a class="anchor" aria-label="anchor" href="#include-characterization-of-genes-of-interest"><i class="fas fa-link"></i></a>
+</h2>
+<pre><code>#remember to activate the conda env if you are using one, and if you haven't activated it yet
+conda activate ProkGenomics_ENV
+
+#run the pipeline
+ProkGenomics -profile singularity --sample_name '1-77321' --genes_interest GenesDB 
+</code></pre>
+</div>
+<div id="run-all-steps" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Run all steps<a class="anchor" aria-label="anchor" href="#run-all-steps"><i class="fas fa-link"></i></a>
+</h2>
+<pre><code>#remember to activate the conda env if you are using one, and if you haven't activated it yet
+conda activate ProkGenomics_ENV
+
+#run the pipeline
+ProkGenomics -profile singularity --sample_name '1-77321'--reference reference.fasta --genes_interest GenesDB 
 </code></pre>
 <p><strong>Parameters you can use:</strong></p>
 <div class="inline-table"><table class="table table-sm">
@@ -139,7 +170,7 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 <td align="left">
 <code>--reference</code> <em>ReferenceGenome.fasta or ReferenceGenome.gbk</em>
 </td>
-<td align="left">If you have a reference genome put the path here. This will activate all the comparative genomics steps. This file can be formatted as FASTA or GENBANK. If you provide a GENBANK file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations).</td>
+<td align="left">If you have a reference genome put the path here. This will activate all the comparative genomics steps. This file can be formatted as FASTA or GENBANK. If you provide a GENBANK file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations). The use of GENBANK files work only when the file has also the fasta sequence at the end of it. In the NCBI download the <code>Genbank (full)</code> option</td>
 </tr>
 <tr class="even">
 <td align="left">
@@ -151,7 +182,7 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 <td align="left">
 <code>--genes_interest</code> <em>GenesDB/</em>
 </td>
-<td align="left">Path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format. This folder can hava any name, just make sure that it doesn’t contain spaces in the name. Do not store additional files in this folder</td>
+<td align="left">Path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format. This folder can have any name, just make sure that it doesn’t contain spaces in the name. Do not store additional files in this folder that are not genes of interest</td>
 </tr>
 <tr class="even">
 <td align="left">
@@ -169,7 +200,15 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 <td align="left">
 <code>--db_gtdb_path</code> <em>/path/gtdb/existing/database</em>
 </td>
-<td align="left">If you already download the gtdbtk database, indicate the path with this option. This parameter is only necessary if you have the gtdbtk database in a different location from where ProkGenomics search by default (ProkGenomics/db_gtdb/)</td>
+<td align="left">If you already download the gtdbtk database, indicate the path with this option. This parameter is only necessary if you have the gtdbtk database in a different location from where ProkGenomics search. Default is ProkGenomics/DB/db_gtdb/, so if you have your db_gtdb in that location, you don’t have to specify any path</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>--keep_intermediate_files</code></td>
+<td align="left">Keep all intermediate files, including mapping files</td>
+</tr>
+<tr class="even">
+<td align="left"><code>--cleanup FALSE</code></td>
+<td align="left">The pipeline cleans-up by defaults. If you are debugging you can set the cleanup to FALSE and keep your work folders. This will allow you to use <code>-resume</code> and troubleshoot errors</td>
 </tr>
 </tbody>
 </table></div>
@@ -183,6 +222,9 @@ ProkGenomics --sample_name '1-77321' -profile singularity
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#run-pipeline"><span class="header-section-number">5</span> Run Pipeline</a></li>
 <li><a class="nav-link" href="#simple-run"><span class="header-section-number">5.1</span> Simple run</a></li>
+<li><a class="nav-link" href="#include-comparative-genomcis-steps"><span class="header-section-number">5.2</span> Include comparative genomcis steps</a></li>
+<li><a class="nav-link" href="#include-characterization-of-genes-of-interest"><span class="header-section-number">5.3</span> Include characterization of genes of interest</a></li>
+<li><a class="nav-link" href="#run-all-steps"><span class="header-section-number">5.4</span> Run all steps</a></li>
 </ul>
 
       <div class="book-extra">
@@ -200,7 +242,7 @@ ProkGenomics --sample_name '1-77321' -profile singularity
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: March 22, 2024.</p>
+    <p>"<strong>ProkGenomics</strong>" was written by Laura Perlaza-Jiménez (Ph.D.). It was last built on Compiled: April 23, 2024.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

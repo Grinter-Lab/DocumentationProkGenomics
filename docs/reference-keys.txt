@@ -5,12 +5,16 @@ getting-started
 make-sure-you-have-the-required-dependencies
 create-a-conda-environment-to-run-prokgenomics
 download-the-prokgenomics
-add-prokgenomics-to-path
+execute-prokgenomics-from-any-path
 set-up-your-project
 how-to-transfer-raw-data-to-clusterserver
 run-pipeline
 simple-run
+include-comparative-genomcis-steps
+include-characterization-of-genes-of-interest
+run-all-steps
 understand-outputs
+how-to-explore-files
 additional-outputs-description
 write-methods
 troubleshooting
