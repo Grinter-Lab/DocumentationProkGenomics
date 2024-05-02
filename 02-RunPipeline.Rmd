@@ -34,6 +34,8 @@ ProkGenomics -profile singularity --sample_name '1-77321'
 
 ## Include comparative genomcis steps
 
+If you have a reference genome put the path using the ``--reference`` flag. This will activate all the comparative genomics steps. This file can be formatted as FASTA or GENBANK. If you provide a GENBANK file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations). The use of GENBANK files work only when the file has also the fasta sequence at the end of it. In the NCBI download the `Genbank (full)` option.
+
 ```
 #remember to activate the conda env if you are using one, and if you haven't activated it yet
 conda activate ProkGenomics_ENV
@@ -45,6 +47,8 @@ ProkGenomics -profile singularity --sample_name '1-77321' --reference reference.
 
 
 ## Include characterization of genes of interest
+
+To activate the genes characterization steps use the flag ``--genes_interest``. Use the path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format. This folder can have any name, just make sure that it doesn't contain spaces in the name. Do not store additional files in this folder that are not genes of interest
 
 ```
 #remember to activate the conda env if you are using one, and if you haven't activated it yet

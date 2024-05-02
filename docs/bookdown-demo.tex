@@ -87,7 +87,7 @@
 
 \title{ProkGenomics}
 \author{Laura Perlaza-Jiménez (Ph.D.)}
-\date{Compiled: April 23, 2024}
+\date{Compiled: May 02, 2024}
 
 \begin{document}
 \maketitle
@@ -346,6 +346,8 @@ ProkGenomics -profile singularity --sample_name '1-77321'
 \hypertarget{include-comparative-genomcis-steps}{%
 \section{Include comparative genomcis steps}\label{include-comparative-genomcis-steps}}
 
+If you have a reference genome put the path using the \texttt{-\/-reference} flag. This will activate all the comparative genomics steps. This file can be formatted as FASTA or GENBANK. If you provide a GENBANK file your Single Nucleotide Variant file will be annotated (tell you what gene has the mutations). The use of GENBANK files work only when the file has also the fasta sequence at the end of it. In the NCBI download the \texttt{Genbank\ (full)} option.
+
 \begin{verbatim}
 #remember to activate the conda env if you are using one, and if you haven't activated it yet
 conda activate ProkGenomics_ENV
@@ -356,6 +358,8 @@ ProkGenomics -profile singularity --sample_name '1-77321' --reference reference.
 
 \hypertarget{include-characterization-of-genes-of-interest}{%
 \section{Include characterization of genes of interest}\label{include-characterization-of-genes-of-interest}}
+
+To activate the genes characterization steps use the flag \texttt{-\/-genes\_interest}. Use the path to a folder that contains all genes of interest. The correct formatting is ONE gene per file in FASTA format. This folder can have any name, just make sure that it doesn't contain spaces in the name. Do not store additional files in this folder that are not genes of interest
 
 \begin{verbatim}
 #remember to activate the conda env if you are using one, and if you haven't activated it yet
