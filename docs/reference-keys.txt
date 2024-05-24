@@ -15,8 +15,8 @@ include-characterization-of-genes-of-interest
 run-all-steps
 understand-outputs
 how-to-explore-files
-additional-outputs-description
 write-methods
+programs-description-and-citations
 troubleshooting
 gitgithub.com-permission-denied
 resources

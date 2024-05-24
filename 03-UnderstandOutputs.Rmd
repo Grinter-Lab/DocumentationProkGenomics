@@ -1,12 +1,8 @@
 # Understand Outputs 
 
-This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named [`<sample_name>_ProkGenomics_report.html`](https://bioinformatics.erc.monash.edu/home/lper0012/ProkGenomics/1-77321-LFA6246_L2_ProkGenomics_report.html) (click hyperlink to see)
+This pipeline produce a folder per program run and several main outputs. The main results are described in the final report named [`<sample_name>_ProkGenomics_report.html`](report.html) (click hyperlink to see a toy example).
 
 ## How to explore files
 
-## Additional outputs description
 
-Folder structure
-```
-```
 

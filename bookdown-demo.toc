@@ -15,16 +15,16 @@
 \contentsline {section}{\numberline {5.4}Run all steps}{16}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Understand Outputs}{19}{chapter.6}%
 \contentsline {section}{\numberline {6.1}How to explore files}{19}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Additional outputs description}{19}{section.6.2}%
 \contentsline {chapter}{\numberline {7}Write Methods}{21}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Troubleshooting}{23}{chapter.8}%
-\contentsline {section}{\numberline {8.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{23}{section.8.1}%
-\contentsline {chapter}{\numberline {9}Resources}{25}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Command Line Intro}{29}{chapter.10}%
-\contentsline {section}{\numberline {10.1}General syntax and conventions:}{29}{section.10.1}%
-\contentsline {subsection}{\numberline {10.1.1}Programs:}{29}{subsection.10.1.1}%
-\contentsline {section}{\numberline {10.2}Basic commands:}{30}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Files system}{30}{section.10.3}%
-\contentsline {chapter}{\numberline {11}Connect to the cluster}{33}{chapter.11}%
-\contentsline {subsection}{\numberline {11.0.1}Macs}{33}{subsection.11.0.1}%
-\contentsline {subsection}{\numberline {11.0.2}Windows}{33}{subsection.11.0.2}%
+\contentsline {section}{\numberline {7.1}Programs description and citations}{21}{section.7.1}%
+\contentsline {chapter}{\numberline {8}Troubleshooting}{27}{chapter.8}%
+\contentsline {section}{\numberline {8.1}\href {mailto:git@github.com}{\nolinkurl {git@github.com}}: Permission denied}{27}{section.8.1}%
+\contentsline {chapter}{\numberline {9}Resources}{29}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Command Line Intro}{31}{chapter.10}%
+\contentsline {section}{\numberline {10.1}General syntax and conventions:}{31}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Programs:}{31}{subsection.10.1.1}%
+\contentsline {section}{\numberline {10.2}Basic commands:}{32}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Files system}{32}{section.10.3}%
+\contentsline {chapter}{\numberline {11}Connect to the cluster}{35}{chapter.11}%
+\contentsline {subsection}{\numberline {11.0.1}Macs}{35}{subsection.11.0.1}%
+\contentsline {subsection}{\numberline {11.0.2}Windows}{35}{subsection.11.0.2}%
